@@ -5,6 +5,7 @@ import { ChevronDown, ChevronUp, Info, AlertCircle } from 'lucide-react'
 
 export default function MiniJobRechner() {
   const currentYear = new Date().getFullYear()
+  const [selectedYear, setSelectedYear] = useState(currentYear)
   const [bruttoMonat, setBruttoMonat] = useState('')
   const [jobTyp, setJobTyp] = useState('minijob')
   const [status, setStatus] = useState('student')
@@ -23,9 +24,21 @@ export default function MiniJobRechner() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
   const [error, setError] = useState('')
 
+  // Year-specific limits
+  const getMinijobLimit = (year: number) => {
+    const limits: { [key: number]: number } = {
+      2025: 556,
+      2026: 556, // Update this when official 2026 limit is announced
+    }
+    return limits[year] || 556
+  }
+
+  const minijobLimit = getMinijobLimit(selectedYear)
+  const availableYears = [2025, 2026]
+
   React.useEffect(() => {
     setError('')
-  }, [jobTyp, status, hauptjob])
+  }, [jobTyp, status, hauptjob, selectedYear])
 
   const berechneNetto = () => {
     
@@ -36,8 +49,8 @@ export default function MiniJobRechner() {
       return
     }
 
-    if (jobTyp === 'minijob' && brutto > 556) {
-      setError('Ein Minijob darf 556 € pro Monat nicht überschreiten.')
+    if (jobTyp === 'minijob' && brutto > minijobLimit) {
+      setError(`Ein Minijob darf ${minijobLimit} € pro Monat nicht überschreiten (Stand ${selectedYear}).`)
       setResult(null)
       return
     }
@@ -53,7 +66,7 @@ export default function MiniJobRechner() {
       netto = brutto
     } else {
       if (hauptjob === 'ja') {
-        if (status === 'werkstudent' && brutto <= 556) {
+        if (status === 'werkstudent' && brutto <= minijobLimit) {
           sozialversicherung = 0
           steuer = brutto * 0.14
         } else {
@@ -62,10 +75,10 @@ export default function MiniJobRechner() {
         }
         netto = brutto - sozialversicherung - steuer
       } else {
-        if (status === 'werkstudent' && brutto <= 556) {
+        if (status === 'werkstudent' && brutto <= minijobLimit) {
           sozialversicherung = brutto * 0.095
           steuer = Math.max(0, (brutto - 1200) * 0.14)
-        } else if (status === 'student' && brutto <= 556) {
+        } else if (status === 'student' && brutto <= minijobLimit) {
           sozialversicherung = 0
           steuer = 0
         } else {
@@ -105,7 +118,7 @@ export default function MiniJobRechner() {
     },
     {
       q: 'Ist der Rechner aktuell?',
-      a: 'Der Rechner basiert auf den aktuellen gesetzlichen Regelungen für 2025. Steuerliche Sonderfälle werden vereinfacht dargestellt. Für eine verbindliche Auskunft wenden Sie sich an einen Steuerberater.'
+      a: 'Der Rechner basiert auf den aktuellen gesetzlichen Regelungen. Sie können zwischen den Jahren 2025 und 2026 wählen. Steuerliche Sonderfälle werden vereinfacht dargestellt. Für eine verbindliche Auskunft wenden Sie sich an einen Steuerberater.'
     }
   ]
 
@@ -113,10 +126,10 @@ export default function MiniJobRechner() {
     <div className="min-h-screen bg-gray-50">
       <main>
         {/* Hero Section */}
-        <div className="bg-linear-to-br from-blue-600 to-blue-700">
+        <div className="bg-gradient-to-br from-blue-600 to-blue-700">
           <div className="max-w-4xl mx-auto px-4 py-16 text-center">
             <h1 className="text-4xl font-bold text-white mb-4">
-              Minijob & Nebenjob Netto-Rechner {currentYear}
+              Minijob & Nebenjob Netto-Rechner {selectedYear}
             </h1>
             <p className="text-xl text-blue-50 mb-8">
               Berechne in Sekunden, wie viel Netto dir bei Minijob oder Nebenjob bleibt.
@@ -134,6 +147,28 @@ export default function MiniJobRechner() {
         <div className="max-w-4xl mx-auto px-4 py-8">
           <section id="rechner" className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-8 hover:shadow-xl transition-shadow duration-300">
             <div className="space-y-6">
+              {/* Year Selector */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  Berechnungsjahr
+                </label>
+                <div className="flex gap-3">
+                  {availableYears.map((year) => (
+                    <button
+                      key={year}
+                      onClick={() => setSelectedYear(year)}
+                      className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all duration-200 ${
+                        selectedYear === year
+                          ? 'bg-blue-600 text-white shadow-md'
+                          : 'bg-white text-gray-700 border border-gray-300 hover:border-blue-400'
+                      }`}
+                    >
+                      {year}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <div>
                 <label htmlFor="brutto-input" className="block text-sm font-medium text-gray-700 mb-2">
                   Brutto-Monatsgehalt (€)
@@ -260,7 +295,7 @@ export default function MiniJobRechner() {
               <button
                 onClick={berechneNetto}
                 aria-label="Netto berechnen"
-                className="w-full bg-linear-to-br from-blue-600 to-blue-700 text-white py-4 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:scale-[1.02] transition-all duration-200 shadow-md hover:shadow-lg"
+                className="w-full bg-gradient-to-br from-blue-600 to-blue-700 text-white py-4 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:scale-[1.02] transition-all duration-200 shadow-md hover:shadow-lg"
               >
                 Netto berechnen
               </button>
@@ -268,7 +303,7 @@ export default function MiniJobRechner() {
 
             {result && (
               <div className="mt-8 pt-8 border-t border-gray-200">
-                <div className="bg-linear-to-br from-blue-50 to-blue-100 border-2 border-blue-300 rounded-xl p-8 shadow-inner">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-300 rounded-xl p-8 shadow-inner">
 
                   <div className="mb-4 inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full">
                     <Info size={14} />
