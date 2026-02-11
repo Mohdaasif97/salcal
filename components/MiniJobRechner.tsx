@@ -7,11 +7,13 @@ export default function MiniJobRechner() {
   const currentYear = new Date().getFullYear()
   const [selectedYear, setSelectedYear] = useState(currentYear)
   const [bruttoMonat, setBruttoMonat] = useState('')
+  const [rentenversicherung, setRentenversicherung] = useState(false)
 
   interface Result {
     brutto: number
     netto: number
     nettoJahr: number
+    rentenversicherungBeitrag: number
   }
 
   const [result, setResult] = useState<Result | null>(null)
@@ -52,13 +54,20 @@ export default function MiniJobRechner() {
     setError('')
 
     // Minijob: Employee receives full gross as net
-    // Employer pays flat-rate contributions (~30%)
-    const netto = brutto
+    // If pension insurance is opted in, employee pays 3.6% contribution
+    let rentenversicherungBeitrag = 0
+    let netto = brutto
+
+    if (rentenversicherung) {
+      rentenversicherungBeitrag = brutto * 0.036
+      netto = brutto - rentenversicherungBeitrag
+    }
 
     setResult({
       brutto,
       netto,
-      nettoJahr: netto * 12
+      nettoJahr: netto * 12,
+      rentenversicherungBeitrag
     })
   }
 
@@ -66,6 +75,10 @@ export default function MiniJobRechner() {
     {
       q: 'Was ist ein Minijob?',
       a: `Ein Minijob ist eine geringfügige Beschäftigung mit einem monatlichen Verdienst bis ${minijobLimit} Euro (Stand ${selectedYear}). Der Arbeitgeber zahlt Pauschalabgaben, der Arbeitnehmer erhält das Bruttogehalt in der Regel als Netto.`
+    },
+    {
+      q: 'Was ist die Rentenversicherungspflicht beim Minijob?',
+      a: 'Seit 2013 sind Minijobber automatisch rentenversicherungspflichtig und zahlen einen Eigenbeitrag von 3,6% ihres Bruttogehalts. Sie können sich jedoch von dieser Pflicht befreien lassen und erhalten dann das volle Bruttogehalt als Netto. Mit Rentenversicherung sammeln Sie Rentenpunkte für Ihre spätere Altersrente.'
     },
     {
       q: 'Muss ich einen Nebenjob versteuern?',
@@ -158,6 +171,26 @@ export default function MiniJobRechner() {
                 )}
               </div>
 
+              {/* Pension Insurance Option */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={rentenversicherung}
+                    onChange={(e) => setRentenversicherung(e.target.checked)}
+                    className="mt-1 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                  />
+                  <div className="flex-1">
+                    <span className="block font-medium text-gray-900 mb-1">
+                      Rentenversicherungspflichtig
+                    </span>
+                    <span className="block text-sm text-gray-700">
+                      Ich möchte in die Rentenversicherung einzahlen (3,6% Eigenbeitrag) und Rentenpunkte sammeln.
+                    </span>
+                  </div>
+                </label>
+              </div>
+
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <div className="flex items-start gap-3">
                   <Info size={20} className="text-green-700 mt-0.5 shrink-0" />
@@ -165,7 +198,11 @@ export default function MiniJobRechner() {
                     <p className="font-medium text-gray-900 mb-1">Gut zu wissen:</p>
                     <p>
                       Bei einem Minijob zahlt der Arbeitgeber die Pauschalabgaben. 
-                      <strong> Sie erhalten Ihr Bruttogehalt vollständig als Netto!</strong>
+                      {!rentenversicherung ? (
+                        <strong> Sie erhalten Ihr Bruttogehalt vollständig als Netto!</strong>
+                      ) : (
+                        <strong> Mit Rentenversicherung zahlen Sie 3,6% vom Brutto für Ihre spätere Rente.</strong>
+                      )}
                     </p>
                   </div>
                 </div>
@@ -200,8 +237,17 @@ export default function MiniJobRechner() {
                       </span>
                     </div>
 
+                    {rentenversicherung && (
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-700">Rentenversicherung (3,6%):</span>
+                        <span className="font-semibold text-red-600">
+                          - {result.rentenversicherungBeitrag.toFixed(2).replace('.', ',')} €
+                        </span>
+                      </div>
+                    )}
+
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-700">Abzüge:</span>
+                      <span className="text-gray-700">Sonstige Abzüge:</span>
                       <span className="font-semibold text-green-700">
                         0,00 €
                       </span>
@@ -225,7 +271,8 @@ export default function MiniJobRechner() {
                   <div className="mt-6 pt-4 border-t border-green-200 text-xs text-gray-600">
                     <p>
                       💡 Der Arbeitgeber zahlt zusätzlich ca. 30% Pauschalabgaben an das Finanzamt und die Sozialversicherungen.
-                      Diese Kosten trägt ausschließlich der Arbeitgeber.
+                      {rentenversicherung && ' Zusätzlich zahlt der Arbeitgeber 15% in die Rentenversicherung ein.'}
+                      {' '}Diese Kosten trägt ausschließlich der Arbeitgeber.
                     </p>
                   </div>
 
