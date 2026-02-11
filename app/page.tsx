@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import MiniJobRechner from '@/components/MiniJobRechner'
 
 export const metadata: Metadata = {
-  title: 'Minijob & Nebenjob Netto-Rechner 2025 | Kostenlos & Aktuell',
+  title: 'Minijob & Nebenjob Netto-Rechner 2026 | Kostenlos & Aktuell',
   description: 'Kostenloser Minijob & Nebenjob Netto-Rechner. Berechne dein Nettogehalt bei Minijob, Nebenjob oder Werkstudentenjob in Deutschland.',
   robots: 'index, follow',
   alternates: {
