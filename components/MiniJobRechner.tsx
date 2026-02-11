@@ -92,10 +92,10 @@ export default function MiniJobRechner() {
         <div className="bg-gradient-to-br from-blue-600 to-blue-700">
           <div className="max-w-4xl mx-auto px-4 py-16 text-center">
             <h1 className="text-4xl font-bold text-white mb-4">
-              Minijob & Nebenjob Netto-Rechner {selectedYear}
+              Minijob Rechner 2026 | Netto berechnen
             </h1>
             <p className="text-xl text-blue-50 mb-8">
-              Berechne in Sekunden, wie viel Netto dir bei Minijob oder Nebenjob bleibt.
+              Berechne in Sekunden, wie viel Netto dir bei einem Minijob bleibt. Kostenlos & Aktuell.
             </p>
 
             <div className="flex justify-center gap-6 text-sm text-blue-100">
