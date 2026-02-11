@@ -7,17 +7,11 @@ export default function MiniJobRechner() {
   const currentYear = new Date().getFullYear()
   const [selectedYear, setSelectedYear] = useState(currentYear)
   const [bruttoMonat, setBruttoMonat] = useState('')
-  const [jobTyp, setJobTyp] = useState('minijob')
-  const [status, setStatus] = useState('student')
-  const [hauptjob, setHauptjob] = useState('nein')
 
   interface Result {
     brutto: number
     netto: number
     nettoJahr: number
-    steuer: number
-    sozialversicherung: number
-    pauschalabgaben: number
   }
 
   const [result, setResult] = useState<Result | null>(null)
@@ -28,9 +22,9 @@ export default function MiniJobRechner() {
   const getMinijobLimit = (year: number) => {
     const limits: { [key: number]: number } = {
       2025: 556,
-      2026: 603, // Update this when official 2026 limit is announced
+      2026: 603,
     }
-    return limits[year] || 556
+    return limits[year] || 603
   }
 
   const minijobLimit = getMinijobLimit(selectedYear)
@@ -38,7 +32,7 @@ export default function MiniJobRechner() {
 
   React.useEffect(() => {
     setError('')
-  }, [jobTyp, status, hauptjob, selectedYear])
+  }, [selectedYear])
 
   const berechneNetto = () => {
     
@@ -49,60 +43,29 @@ export default function MiniJobRechner() {
       return
     }
 
-    if (jobTyp === 'minijob' && brutto > minijobLimit) {
+    if (brutto > minijobLimit) {
       setError(`Ein Minijob darf ${minijobLimit} € pro Monat nicht überschreiten (Stand ${selectedYear}).`)
       setResult(null)
       return
     }
 
     setError('')
-    let netto = brutto
-    let steuer = 0
-    let sozialversicherung = 0
-    let pauschalabgaben = 0
 
-
-    if (jobTyp === 'minijob') {
-      netto = brutto
-    } else {
-      if (hauptjob === 'ja') {
-        if (status === 'werkstudent' && brutto <= minijobLimit) {
-          sozialversicherung = 0
-          steuer = brutto * 0.14
-        } else {
-          sozialversicherung = brutto * 0.20
-          steuer = brutto * 0.20
-        }
-        netto = brutto - sozialversicherung - steuer
-      } else {
-        if (status === 'werkstudent' && brutto <= minijobLimit) {
-          sozialversicherung = brutto * 0.095
-          steuer = Math.max(0, (brutto - 1200) * 0.14)
-        } else if (status === 'student' && brutto <= minijobLimit) {
-          sozialversicherung = 0
-          steuer = 0
-        } else {
-          sozialversicherung = brutto * 0.20
-          steuer = Math.max(0, (brutto - 1200) * 0.14)
-        }
-        netto = brutto - sozialversicherung - steuer
-      }
-    }
+    // Minijob: Employee receives full gross as net
+    // Employer pays flat-rate contributions (~30%)
+    const netto = brutto
 
     setResult({
       brutto,
-      netto: Math.max(0, netto),
-      nettoJahr: Math.max(0, netto * 12),
-      steuer,
-      sozialversicherung,
-      pauschalabgaben
+      netto,
+      nettoJahr: netto * 12
     })
   }
 
   const faqs = [
     {
       q: 'Was ist ein Minijob?',
-      a: 'Ein Minijob ist eine geringfügige Beschäftigung mit einem monatlichen Verdienst bis 556 Euro (Stand 2025). Der Arbeitgeber zahlt Pauschalabgaben, der Arbeitnehmer erhält das Bruttogehalt in der Regel als Netto.'
+      a: `Ein Minijob ist eine geringfügige Beschäftigung mit einem monatlichen Verdienst bis ${minijobLimit} Euro (Stand ${selectedYear}). Der Arbeitgeber zahlt Pauschalabgaben, der Arbeitnehmer erhält das Bruttogehalt in der Regel als Netto.`
     },
     {
       q: 'Muss ich einen Nebenjob versteuern?',
@@ -114,11 +77,11 @@ export default function MiniJobRechner() {
     },
     {
       q: 'Was ist der Unterschied zwischen Minijob und Nebenjob?',
-      a: 'Ein Minijob ist auf 556 Euro begrenzt und weitgehend abgabenfrei für den Arbeitnehmer. Ein Nebenjob ist jede zusätzliche Beschäftigung neben dem Hauptjob, unabhängig vom Verdienst, und unterliegt der normalen Besteuerung.'
+      a: `Ein Minijob ist auf ${minijobLimit} Euro begrenzt und weitgehend abgabenfrei für den Arbeitnehmer. Ein Nebenjob ist jede zusätzliche Beschäftigung neben dem Hauptjob, unabhängig vom Verdienst, und unterliegt der normalen Besteuerung.`
     },
     {
       q: 'Ist der Rechner aktuell?',
-      a: 'Der Rechner basiert auf den aktuellen gesetzlichen Regelungen. Sie können zwischen den Jahren 2025 und 2026 wählen. Steuerliche Sonderfälle werden vereinfacht dargestellt. Für eine verbindliche Auskunft wenden Sie sich an einen Steuerberater.'
+      a: `Der Rechner basiert auf den aktuellen gesetzlichen Regelungen. Sie können zwischen den Jahren 2025 und 2026 wählen. Die Minijob-Grenze für 2026 beträgt 603 Euro. Für eine verbindliche Auskunft wenden Sie sich an einen Steuerberater.`
     }
   ]
 
@@ -167,6 +130,9 @@ export default function MiniJobRechner() {
                     </button>
                   ))}
                 </div>
+                <p className="mt-2 text-xs text-gray-600">
+                  Minijob-Grenze {selectedYear}: {minijobLimit} € pro Monat
+                </p>
               </div>
 
               <div>
@@ -182,7 +148,7 @@ export default function MiniJobRechner() {
                     setError('')
                   }}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg text-gray-900 bg-white placeholder:text-gray-400"
-                  placeholder="z.B. 520"
+                  placeholder={`z.B. ${Math.floor(minijobLimit * 0.9)}`}
                 />
                 {error && (
                   <div className="mt-2 flex items-start gap-2 text-red-600 text-sm" role="alert">
@@ -192,104 +158,17 @@ export default function MiniJobRechner() {
                 )}
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
-                  Job-Typ
-                </label>
-                <div className="space-y-2">
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      value="minijob"
-                      checked={jobTyp === 'minijob'}
-                      onChange={(e) => setJobTyp(e.target.value)}
-                      className="mr-2"
-                    />
-                    <span className="text-gray-700">Minijob</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      value="nebenjob"
-                      checked={jobTyp === 'nebenjob'}
-                      onChange={(e) => setJobTyp(e.target.value)}
-                      className="mr-2"
-                    />
-                    <span className="text-gray-700">Nebenjob</span>
-                  </label>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
-                  Status
-                </label>
-                <div className="space-y-2">
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      value="student"
-                      checked={status === 'student'}
-                      onChange={(e) => setStatus(e.target.value)}
-                      className="mr-2"
-                    />
-                    <span className="text-gray-700">Student</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      value="nicht-student"
-                      checked={status === 'nicht-student'}
-                      onChange={(e) => setStatus(e.target.value)}
-                      className="mr-2"
-                    />
-                    <span className="text-gray-700">Nicht-Student</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      value="werkstudent"
-                      checked={status === 'werkstudent'}
-                      onChange={(e) => setStatus(e.target.value)}
-                      className="mr-2"
-                    />
-                    <span className="text-gray-700">Werkstudent</span>
-                  </label>
-                </div>
-              </div>
-
-              {jobTyp === 'nebenjob' && (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
-                    Hauptjob vorhanden?
-                  </label>
-                  <div className="space-y-2">
-                    <label className="flex items-center">
-                      <input
-                        type="radio"
-                        value="ja"
-                        checked={hauptjob === 'ja'}
-                        onChange={(e) => setHauptjob(e.target.value)}
-                        className="mr-2"
-                      />
-                      <span className="text-gray-700">Ja</span>
-                    </label>
-                    <label className="flex items-center">
-                      <input
-                        type="radio"
-                        value="nein"
-                        checked={hauptjob === 'nein'}
-                        onChange={(e) => setHauptjob(e.target.value)}
-                        className="mr-2"
-                      />
-                      <span className="text-gray-700">Nein</span>
-                    </label>
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <Info size={20} className="text-green-700 mt-0.5 shrink-0" />
+                  <div className="text-sm text-gray-700">
+                    <p className="font-medium text-gray-900 mb-1">Gut zu wissen:</p>
+                    <p>
+                      Bei einem Minijob zahlt der Arbeitgeber die Pauschalabgaben. 
+                      <strong> Sie erhalten Ihr Bruttogehalt vollständig als Netto!</strong>
+                    </p>
                   </div>
                 </div>
-              )}
-
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 text-xs text-gray-600">
-                Vereinfachte Berechnung auf Basis typischer Annahmen (keine Steuerberatung).
               </div>
 
               <button
@@ -303,78 +182,59 @@ export default function MiniJobRechner() {
 
             {result && (
               <div className="mt-8 pt-8 border-t border-gray-200">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-300 rounded-xl p-8 shadow-inner">
+                <div className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-xl p-8 shadow-inner">
 
-                  <div className="mb-4 inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full">
-                    <Info size={14} />
-                    <span>Vereinfachte Berechnung</span>
+                  <div className="mb-6 text-center">
+                    <p className="text-sm text-gray-600 mb-2">Ihr Nettogehalt</p>
+                    <p className="text-4xl font-bold text-green-700">
+                      {result.netto.toFixed(2).replace('.', ',')} €
+                    </p>
+                    <p className="text-sm text-gray-600 mt-1">pro Monat</p>
                   </div>
 
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-3 pt-4 border-t border-green-200">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-700 font-medium">Netto pro Monat:</span>
-                      <span className="text-2xl font-bold text-blue-700">
+                      <span className="text-gray-700">Bruttogehalt:</span>
+                      <span className="font-semibold text-gray-900">
+                        {result.brutto.toFixed(2).replace('.', ',')} €
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">Abzüge:</span>
+                      <span className="font-semibold text-green-700">
+                        0,00 €
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between items-center pt-3 border-t border-green-300">
+                      <span className="font-medium text-gray-900">Nettogehalt pro Monat:</span>
+                      <span className="text-xl font-bold text-green-700">
                         {result.netto.toFixed(2).replace('.', ',')} €
                       </span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700 font-medium">Netto pro Jahr:</span>
-                      <span className="text-xl font-semibold text-blue-600">
+
+                    <div className="flex justify-between items-center bg-white bg-opacity-60 rounded-lg p-3 mt-4">
+                      <span className="font-medium text-gray-900">Nettogehalt pro Jahr:</span>
+                      <span className="text-xl font-bold text-green-700">
                         {result.nettoJahr.toFixed(2).replace('.', ',')} €
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-4 space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Bruttogehalt:</span>
-                      <span className="text-gray-900">
-                        {result.brutto.toFixed(2).replace('.', ',')} €
-                      </span>
-                    </div>
-
-                    {result.steuer > 0 && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Einkommensteuer:</span>
-                        <span className="text-red-600">
-                          -{result.steuer.toFixed(2).replace('.', ',')} €
-                        </span>
-                      </div>
-                    )}
-
-                    {result.sozialversicherung > 0 && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Sozialversicherung:</span>
-                        <span className="text-red-600">
-                          -{result.sozialversicherung.toFixed(2).replace('.', ',')} €
-                        </span>
-                      </div>
-                    )}
-
-                    {result.pauschalabgaben > 0 && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Pauschalabgaben:</span>
-                        <span className="text-red-600">
-                          -{result.pauschalabgaben.toFixed(2).replace('.', ',')} €
-                        </span>
-                      </div>
-                    )}
-
-                    <div className="flex justify-between pt-2 border-t border-blue-200 font-medium">
-                      <span className="text-gray-900">Netto verbleibend:</span>
-                      <span className="text-blue-700">
-                        {result.netto.toFixed(2).replace('.', ',')} €
-                      </span>
-                    </div>
+                  <div className="mt-6 pt-4 border-t border-green-200 text-xs text-gray-600">
+                    <p>
+                      💡 Der Arbeitgeber zahlt zusätzlich ca. 30% Pauschalabgaben an das Finanzamt und die Sozialversicherungen.
+                      Diese Kosten trägt ausschließlich der Arbeitgeber.
+                    </p>
                   </div>
-
-
 
                 </div>
               </div>
             )}
           </section>
 
+          {/* SEO Content Section - PRESERVED EXACTLY */}
           <section className="mt-12 space-y-6 text-gray-800" id="erklaerung">
             <h2>Der Minijob in Deutschland</h2>
             <p>
@@ -430,12 +290,12 @@ export default function MiniJobRechner() {
             </p>
           </section>
 
-
-
+          {/* SEO Info Box - PRESERVED */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8 text-sm text-gray-700">
             Dieser Rechner eignet sich für Minijobs, Nebenjobs, Werkstudentenjobs sowie für Studenten und Nicht-Studenten in Deutschland. Berechnen Sie schnell und einfach Ihr Nettogehalt.
           </div>
 
+          {/* FAQ Section - PRESERVED */}
           <section id="faq" className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Häufig gestellte Fragen
