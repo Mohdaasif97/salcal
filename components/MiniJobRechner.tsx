@@ -240,7 +240,8 @@ export default function MiniJobRechner() {
             <p>
               Ein Minijob ist eine geringfügige Beschäftigung in Deutschland, bei der das monatliche Einkommen
               eine festgelegte Grenze nicht überschreitet. Seit 2024 ist diese Grenze dynamisch an den
-              gesetzlichen Mindestlohn gekoppelt und liegt im Jahr 2025 bei <strong>556 Euro pro Monat</strong>.
+              gesetzlichen Mindestlohn gekoppelt und liegt im Jahr 2025 bei <strong>556 Euro pro Monat</strong> und 
+              im Jahr 2026 bei <strong>603 Euro pro Monat</strong>.
               Minijobs sind besonders beliebt bei Studierenden, Rentnern und Personen mit einem Nebenverdienst.
             </p>
 
