@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import MiniJobRechner from '@/components/MiniJobRechner'
 
 export const metadata: Metadata = {
-  title: 'Minijob & Nebenjob Netto-Rechner 2026 | Kostenlos & Aktuell',
-  description: 'Kostenloser Minijob & Nebenjob Netto-Rechner. Berechne dein Nettogehalt bei Minijob, Nebenjob oder Werkstudentenjob in Deutschland.',
+  title: 'Minijob Rechner 2026 | Netto berechnen - Kostenlos & Aktuell',
+  description: 'Kostenloser Minijob Rechner 2026: Berechne dein Nettogehalt bei Minijob (bis 603€). Auch für Nebenjob, Werkstudenten & Studenten. Aktuelle Grenzwerte 2025 & 2026.',
   robots: 'index, follow',
   alternates: {
     canonical: 'https://minijob-rechner.de',
@@ -20,7 +20,7 @@ export default function Home() {
         "name": "Was ist ein Minijob?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ein Minijob ist eine geringfügige Beschäftigung mit einem monatlichen Verdienst bis 556 Euro (Stand 2025). Der Arbeitgeber zahlt Pauschalabgaben, der Arbeitnehmer erhält das Bruttogehalt in der Regel als Netto."
+          "text": "Ein Minijob ist eine geringfügige Beschäftigung mit einem monatlichen Verdienst bis 603 Euro (Stand 2026). Der Arbeitgeber zahlt Pauschalabgaben, der Arbeitnehmer erhält das Bruttogehalt in der Regel als Netto."
         }
       },
       {
@@ -44,7 +44,7 @@ export default function Home() {
         "name": "Was ist der Unterschied zwischen Minijob und Nebenjob?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ein Minijob ist auf 556 Euro begrenzt und weitgehend abgabenfrei für den Arbeitnehmer. Ein Nebenjob ist jede zusätzliche Beschäftigung neben dem Hauptjob, unabhängig vom Verdienst, und unterliegt der normalen Besteuerung."
+          "text": "Ein Minijob ist auf 603 Euro (2026) begrenzt und weitgehend abgabenfrei für den Arbeitnehmer. Ein Nebenjob ist jede zusätzliche Beschäftigung neben dem Hauptjob, unabhängig vom Verdienst, und unterliegt der normalen Besteuerung."
         }
       }
     ]
@@ -53,9 +53,9 @@ export default function Home() {
   const webAppSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Minijob & Nebenjob Netto-Rechner",
+    "name": "Minijob Rechner 2026",
     "url": "https://minijob-rechner.de",
-    "description": "Kostenloser Rechner zur Berechnung des Nettogehalts bei Minijob, Nebenjob und Werkstudentenjob in Deutschland.",
+    "description": "Kostenloser Rechner zur Berechnung des Nettogehalts bei Minijob in Deutschland. Aktuelle Grenzwerte: 556€ (2025) und 603€ (2026).",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
     "offers": {
