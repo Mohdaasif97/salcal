@@ -28,7 +28,7 @@ export default function MiniJobRechner() {
   const getMinijobLimit = (year: number) => {
     const limits: { [key: number]: number } = {
       2025: 556,
-      2026: 556, // Update this when official 2026 limit is announced
+      2026: 603, // Update this when official 2026 limit is announced
     }
     return limits[year] || 556
   }
