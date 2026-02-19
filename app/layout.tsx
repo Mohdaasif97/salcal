@@ -152,7 +152,7 @@ export const metadata: Metadata = {
     title: 'Minijob Rechner 2026 | Brutto Netto berechnen',
     description:
       'Kostenlos Minijob Netto berechnen – für Arbeitnehmer & Arbeitgeber. Aktuell mit der 603 € Grenze für 2026.',
-    url: 'https://salcal.vercel.app',
+    url: 'https://minijob-netto-rechner.de',
     siteName: 'Minijob Rechner 2026',
     locale: 'de_DE',
     type: 'website',
