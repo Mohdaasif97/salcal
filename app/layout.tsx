@@ -19,8 +19,7 @@ const webAppSchema = {
   '@type': 'WebApplication',
   name: 'Minijob Rechner 2026',
   description:
-    'description:
-  'Minijob Rechner 2026: Netto kostenlos berechnen. ✓ 603 € Grenze ✓ Arbeitgeber & Arbeitnehmer ✓ Gewerblich & Privathaushalt.',
+    'Minijob Rechner 2026: Netto kostenlos berechnen. ✓ 603 € Grenze ✓ Arbeitgeber & Arbeitnehmer ✓ Gewerblich & Privathaushalt.',
   url: 'https://www.minijob-netto-rechner.de',
   applicationCategory: 'FinanceApplication',
   operatingSystem: 'Web',
