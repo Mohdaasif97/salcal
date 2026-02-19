@@ -124,8 +124,9 @@ export const metadata: Metadata = {
   // FIX ①: Meta description (was completely missing)
   title: 'Minijob Rechner 2026 | Brutto Netto berechnen – Kostenlos & Aktuell',
   description:
-    'Minijob Rechner 2026: Jetzt kostenlos Ihr Netto berechnen. ✓ Für Arbeitnehmer & Arbeitgeber ✓ Gewerblich & Privathaushalt ✓ Aktuelle 603 € Grenze. Schnell & präzise.',
-
+    'description:
+  'Minijob Rechner 2026: Netto kostenlos berechnen. ✓ 603 € Grenze ✓ Arbeitgeber & Arbeitnehmer ✓ Gewerblich & Privathaushalt.',
+  
   keywords:
     'Minijob Rechner, Minijob Rechner 2026, Minijob Netto berechnen, 603 Euro Job Rechner, Brutto Netto Rechner Minijob, geringfügige Beschäftigung Rechner, Minijob Arbeitgeber Kosten, Minijob Privathaushalt, Minijob Grenze 2026, Aushilfe Rechner',
 
