@@ -20,7 +20,7 @@ const webAppSchema = {
   name: 'Minijob Rechner 2026',
   description:
     'Minijob Rechner 2026: Netto kostenlos berechnen. ✓ 603 € Grenze ✓ Arbeitgeber & Arbeitnehmer ✓ Gewerblich & Privathaushalt.',
-  url: 'https://minijob-netto-rechner.de',
+  url: 'https://www.minijob-netto-rechner.de',
   applicationCategory: 'FinanceApplication',
   operatingSystem: 'Web',
   inLanguage: 'de-DE',
@@ -152,7 +152,7 @@ export const metadata: Metadata = {
     title: 'Minijob Rechner 2026 | Brutto Netto berechnen',
     description:
       'Kostenlos Minijob Netto berechnen – für Arbeitnehmer & Arbeitgeber. Aktuell mit der 603 € Grenze für 2026.',
-    url: 'https://minijob-netto-rechner.de',
+    url: 'https://www.minijob-netto-rechner.de',
     siteName: 'Minijob Rechner 2026',
     locale: 'de_DE',
     type: 'website',
