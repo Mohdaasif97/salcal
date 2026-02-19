@@ -123,8 +123,7 @@ const faqSchema = {
 export const metadata: Metadata = {
   // FIX ①: Meta description (was completely missing)
   title: 'Minijob Rechner 2026 | Brutto Netto berechnen – Kostenlos & Aktuell',
-  description:
-    'description:
+description:
   'Minijob Rechner 2026: Netto kostenlos berechnen. ✓ 603 € Grenze ✓ Arbeitgeber & Arbeitnehmer ✓ Gewerblich & Privathaushalt.',
   
   keywords:
