@@ -19,7 +19,8 @@ const webAppSchema = {
   '@type': 'WebApplication',
   name: 'Minijob Rechner 2026',
   description:
-    'Minijob Rechner 2026: Netto kostenlos berechnen. ✓ 603 € Grenze ✓ Arbeitgeber & Arbeitnehmer ✓ Gewerblich & Privathaushalt.',
+    'description:
+  'Minijob Rechner 2026: Netto kostenlos berechnen. ✓ 603 € Grenze ✓ Arbeitgeber & Arbeitnehmer ✓ Gewerblich & Privathaushalt.',
   url: 'https://www.minijob-netto-rechner.de',
   applicationCategory: 'FinanceApplication',
   operatingSystem: 'Web',
@@ -131,7 +132,7 @@ export const metadata: Metadata = {
 
   // FIX ②: Canonical URL (prevents duplicate indexing)
   alternates: {
-    canonical: 'https://salcal.vercel.app',
+    canonical: 'https://www.minijob-netto-rechner.de',
   },
 
   // FIX ③: Explicit robots directive
