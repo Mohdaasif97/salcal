@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Kostenloser Minijob Rechner 2026: Berechne dein Nettogehalt bei Minijob (bis 603€). Auch für Nebenjob, Werkstudenten & Studenten. Aktuelle Grenzwerte 2025 & 2026.',
   robots: 'index, follow',
   alternates: {
-    canonical: 'https://minijob-rechner.de',
+    canonical: 'https://www.minijob-netto-rechner.de',
   },
 }
 
