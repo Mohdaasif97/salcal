@@ -3,10 +3,14 @@ import MiniJobRechner from '@/components/MiniJobRechner'
 
 export const metadata: Metadata = {
   title: 'Minijob Rechner 2026 | Netto berechnen - Kostenlos & Aktuell',
-  description: 'Kostenloser Minijob Rechner 2026: Berechne dein Nettogehalt bei Minijob (bis 603€). Auch für Nebenjob, Werkstudenten & Studenten. Aktuelle Grenzwerte 2025 & 2026.',
-  robots: 'index, follow',
+  description:
+    'Kostenloser Minijob Rechner 2026: Berechne dein Nettogehalt bei Minijob in Deutschland. Aktuelle Grenzwerte und einfache Berechnung.',
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
-    canonical: 'https://www.minijob-netto-rechner.de',
+    canonical: 'https://www.minijob-netto-rechner.de/',
   },
 }
 
@@ -20,23 +24,15 @@ export default function Home() {
         "name": "Was ist ein Minijob?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ein Minijob ist eine geringfügige Beschäftigung mit einem monatlichen Verdienst bis 603 Euro (Stand 2026). Der Arbeitgeber zahlt Pauschalabgaben, der Arbeitnehmer erhält das Bruttogehalt in der Regel als Netto."
+          "text": "Ein Minijob ist eine geringfügige Beschäftigung in Deutschland mit einer gesetzlich festgelegten monatlichen Verdienstgrenze. Für Arbeitnehmer fallen in der Regel keine klassischen Sozialabgaben an."
         }
       },
       {
         "@type": "Question",
-        "name": "Muss ich einen Nebenjob versteuern?",
+        "name": "Wie wird ein Minijob besteuert?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja, Nebenjobs sind grundsätzlich steuerpflichtig. Bei einem zweiten Job wird häufig Steuerklasse 6 angewendet, was zu höheren Abzügen führt. Die genaue Steuerlast hängt vom Gesamteinkommen ab."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Gilt das auch für Studenten?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Studenten haben Sonderregelungen: Bei Minijobs gelten die gleichen Regeln. Als Werkstudent können Sie bis 20 Stunden pro Woche arbeiten und zahlen nur reduzierte Sozialversicherungsbeiträge."
+          "text": "Minijobs können pauschal durch den Arbeitgeber versteuert werden. In bestimmten Fällen erfolgt eine individuelle Besteuerung. Die genaue Regelung hängt vom Beschäftigungsverhältnis ab."
         }
       },
       {
@@ -44,7 +40,15 @@ export default function Home() {
         "name": "Was ist der Unterschied zwischen Minijob und Nebenjob?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ein Minijob ist auf 603 Euro (2026) begrenzt und weitgehend abgabenfrei für den Arbeitnehmer. Ein Nebenjob ist jede zusätzliche Beschäftigung neben dem Hauptjob, unabhängig vom Verdienst, und unterliegt der normalen Besteuerung."
+          "text": "Ein Minijob ist eine spezielle Form der geringfügigen Beschäftigung mit gesetzlicher Verdienstgrenze. Ein Nebenjob bezeichnet allgemein jede zusätzliche Tätigkeit neben dem Hauptberuf."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist der Rechner kostenlos nutzbar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, der Minijob Rechner kann kostenlos und ohne Registrierung genutzt werden."
         }
       }
     ]
@@ -54,10 +58,10 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Minijob Rechner 2026",
-    "url": "https://minijob-rechner.de",
-    "description": "Kostenloser Rechner zur Berechnung des Nettogehalts bei Minijob in Deutschland. Aktuelle Grenzwerte: 556€ (2025) und 603€ (2026).",
+    "url": "https://www.minijob-netto-rechner.de/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
+    "isAccessibleForFree": true,
     "offers": {
       "@type": "Offer",
       "price": "0",
