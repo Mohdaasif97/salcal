@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'   // ✅ Added
 import './globals.css'
 
 const geistSans = Geist({
@@ -118,23 +119,17 @@ const faqSchema = {
   ],
 }
 
-// ─── METADATA (fixes: description, Open Graph, Twitter, canonical, robots) ───
+// ─── METADATA ───
 
 export const metadata: Metadata = {
-  // FIX ①: Meta description (was completely missing)
   title: 'Minijob Rechner 2026 | Brutto Netto berechnen – Kostenlos & Aktuell',
   description:
     'Minijob Rechner 2026: Netto kostenlos berechnen. ✓ 603 € Grenze ✓ Arbeitgeber & Arbeitnehmer ✓ Gewerblich & Privathaushalt.',
-  
   keywords:
     'Minijob Rechner, Minijob Rechner 2026, Minijob Netto berechnen, 603 Euro Job Rechner, Brutto Netto Rechner Minijob, geringfügige Beschäftigung Rechner, Minijob Arbeitgeber Kosten, Minijob Privathaushalt, Minijob Grenze 2026, Aushilfe Rechner',
-
-  // FIX ②: Canonical URL (prevents duplicate indexing)
   alternates: {
     canonical: 'https://www.minijob-netto-rechner.de',
   },
-
-  // FIX ③: Explicit robots directive
   robots: {
     index: true,
     follow: true,
@@ -146,8 +141,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-
-  // FIX ④: Open Graph (WhatsApp / LinkedIn / Facebook link previews)
   openGraph: {
     title: 'Minijob Rechner 2026 | Brutto Netto berechnen',
     description:
@@ -157,8 +150,6 @@ export const metadata: Metadata = {
     locale: 'de_DE',
     type: 'website',
   },
-
-  // FIX ⑤: Twitter / X Card
   twitter: {
     card: 'summary_large_image',
     title: 'Minijob Rechner 2026 | Brutto Netto berechnen',
@@ -167,7 +158,7 @@ export const metadata: Metadata = {
   },
 }
 
-// ─── ROOT LAYOUT ─────────────────────────────────────────────────────────────
+// ─── ROOT LAYOUT ───
 
 export default function RootLayout({
   children,
@@ -175,15 +166,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    // FIX ⑥: lang="de" — tells Google this is German content
     <html lang="de">
       <head>
-        {/* FIX ⑦: WebApplication JSON-LD — signals to Google this is a free finance tool */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
         />
-        {/* FIX ⑧: FAQPage JSON-LD — enables FAQ rich snippets directly in Google results */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -191,6 +179,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
+        <Analytics />   {/* ✅ Added only this */}
       </body>
     </html>
   )
