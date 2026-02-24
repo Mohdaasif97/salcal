@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/react'   // ✅ Added
+import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 
 const geistSans = Geist({
@@ -15,6 +15,21 @@ const geistMono = Geist_Mono({
 
 // ─── JSON-LD schemas (defined outside metadata so we can embed them in <head>) ─
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Minijob Rechner 2026',
+  url: 'https://www.minijob-netto-rechner.de',
+  logo: 'https://www.minijob-netto-rechner.de/favicon.ico',
+  description:
+    'Kostenloser Minijob Rechner 2026 für Deutschland – Brutto zu Netto berechnen für Arbeitnehmer und Arbeitgeber.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'Customer Service',
+    url: 'https://www.minijob-netto-rechner.de/kontakt',
+  },
+}
+
 const webAppSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
@@ -25,6 +40,7 @@ const webAppSchema = {
   applicationCategory: 'FinanceApplication',
   operatingSystem: 'Web',
   inLanguage: 'de-DE',
+  isAccessibleForFree: true,
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -141,6 +157,8 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=5.0',
+  themeColor: '#ffffff',
   openGraph: {
     title: 'Minijob Rechner 2026 | Brutto Netto berechnen',
     description:
@@ -167,24 +185,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-<head>
-  <script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3387224100761547"
-    crossOrigin="anonymous"
-  />
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-  />
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-  />
-</head>
+      <head>
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+
+        {/* Essential meta tags */}
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3387224100761547"
+          crossOrigin="anonymous"
+        />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        <Analytics />   {/* ✅ Added only this */}
+        <Analytics />
       </body>
     </html>
   )
