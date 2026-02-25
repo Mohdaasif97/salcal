@@ -6,15 +6,19 @@ import './globals.css'
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
-  display: 'swap',  // Improve font loading performance
+  display: 'swap',
   preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
 })
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
-  display: 'swap',  // Improve font loading performance
-  preload: true,
+  display: 'swap',
+  preload: false, // Not critical, load async
+  fallback: ['monospace'],
+  adjustFontFallback: true,
 })
 
 // ─── JSON-LD schemas (defined outside metadata so we can embed them in <head>) ─
@@ -194,18 +198,13 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
-        {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-
         {/* Essential meta tags */}
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 
-        {/* Google AdSense */}
+        {/* Google AdSense - Deferred for performance */}
         <script
-          async
+          defer
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3387224100761547"
           crossOrigin="anonymous"
         />

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, memo, useMemo } from 'react'
 import { ChevronDown, ChevronUp, Info, AlertCircle, HelpCircle } from 'lucide-react'
 
 export default function MiniJobRechner() {
@@ -35,7 +35,7 @@ export default function MiniJobRechner() {
   const [result, setResult] = useState<Result | null>(null)
 
   const getMinijobLimit = (year: number) => ({ 2025: 556, 2026: 603 }[year] || 603)
-  const minijobLimit = getMinijobLimit(selectedYear)
+  const minijobLimit = useMemo(() => getMinijobLimit(selectedYear), [selectedYear])
   const availableYears = [2025, 2026]
 
   React.useEffect(() => { setError('') }, [selectedYear])
@@ -70,7 +70,7 @@ export default function MiniJobRechner() {
   const fmt = (n: number) => n.toFixed(2).replace('.', ',')
   const pct = (n: number) => `${(n * 100).toFixed(2).replace('.', ',')}%`
 
-  const ResultRow = ({ label, value, rate, negative, bold, highlight, sub, tooltip }: {
+  const ResultRow = memo(({ label, value, rate, negative, bold, highlight, sub, tooltip }: {
     label: string; value: number; rate?: string; negative?: boolean; bold?: boolean; highlight?: boolean; sub?: boolean; tooltip?: string
   }) => (
     <div className={`flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 py-3 px-4 sm:px-5 ${highlight ? 'bg-gray-50 border-t-2 border-gray-200' : sub ? 'bg-blue-50' : 'border-b border-gray-100 last:border-0'}`}>
@@ -90,9 +90,9 @@ export default function MiniJobRechner() {
         {negative && value > 0 ? `- ${fmt(value)} €` : `${fmt(value)} €`}
       </span>
     </div>
-  )
+  ))
 
-  const ToggleGroup = ({ label, value, onChange, options, hint }: {
+  const ToggleGroup = memo(({ label, value, onChange, options, hint }: {
     label: string; value: string; onChange: (v: string) => any; options: { value: string; label: string }[]; hint?: string
   }) => (
     <div className="space-y-2">
@@ -110,7 +110,7 @@ export default function MiniJobRechner() {
       </div>
       {hint && <p className="mt-1 sm:mt-1.5 text-xs text-gray-500">{hint}</p>}
     </div>
-  )
+  ))
 
   const faqs = [
     {
