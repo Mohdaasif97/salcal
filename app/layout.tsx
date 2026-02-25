@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
@@ -135,6 +135,12 @@ const faqSchema = {
   ],
 }
 
+// ─── VIEWPORT ───
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+}
+
 // ─── METADATA ───
 
 export const metadata: Metadata = {
@@ -157,8 +163,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=5.0',
-  themeColor: '#ffffff',
   openGraph: {
     title: 'Minijob Rechner 2026 | Brutto Netto berechnen',
     description:
