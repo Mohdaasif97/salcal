@@ -6,15 +6,11 @@ import './globals.css'
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
-  display: 'swap',  // Improve font loading performance
-  preload: true,
 })
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
-  display: 'swap',  // Improve font loading performance
-  preload: true,
 })
 
 // ─── JSON-LD schemas (defined outside metadata so we can embed them in <head>) ─
