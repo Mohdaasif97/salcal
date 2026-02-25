@@ -93,7 +93,7 @@ export default function MiniJobRechner() {
   )
 
   const ToggleGroup = ({ label, value, onChange, options, hint }: {
-    label: string; value: string; onChange: (v: string) => void; options: { value: string; label: string }[]; hint?: string
+    label: string; value: string; onChange: (v: string) => any; options: { value: string; label: string }[]; hint?: string
   }) => (
     <div className="space-y-2">
       <label className="block text-sm font-semibold text-gray-900">{label}</label>
@@ -188,15 +188,15 @@ export default function MiniJobRechner() {
                 )}
               </div>
 
-              <ToggleGroup label="Art des Minijobs" value={jobType} onChange={setJobType}
+              <ToggleGroup label="Art des Minijobs" value={jobType} onChange={(v) => setJobType(v as 'gewerblich' | 'privathaushalt')}
                 options={[{ value: 'gewerblich', label: 'Im Betrieb' }, { value: 'privathaushalt', label: 'Privathaushalt' }]}
                 hint={jobType === 'gewerblich' ? 'Arbeitgeber zahlt ~32,47% Gesamtabgaben.' : 'Günstigere Beitragssätze: ~14,62% Gesamtabgaben.'} />
 
-              <ToggleGroup label="Rentenversicherung" value={rentenBefreiung} onChange={setRentenBefreiung}
+              <ToggleGroup label="Rentenversicherung" value={rentenBefreiung} onChange={(v) => setRentenBefreiung(v as 'ja' | 'nein')}
                 options={[{ value: 'nein', label: 'Zahlt 3,6%' }, { value: 'ja', label: 'Befreit' }]}
                 hint={rentenBefreiung === 'ja' ? '✓ Volles Bruttogehalt als Netto' : '✓ Sammelt Rentenpunkte'} />
 
-              <ToggleGroup label="Krankenversicherung" value={krankenversicherung} onChange={setKrankenversicherung}
+              <ToggleGroup label="Krankenversicherung" value={krankenversicherung} onChange={(v) => setKrankenversicherung(v as 'gesetzlich' | 'privat')}
                 options={[{ value: 'gesetzlich', label: 'Gesetzlich' }, { value: 'privat', label: 'Privat' }]}
                 hint={krankenversicherung === 'gesetzlich'
                   ? `Arbeitgeber zahlt ${jobType === 'gewerblich' ? '13%' : '5%'} pauschale KV`
