@@ -31,6 +31,12 @@ const organizationSchema = {
   logo: 'https://www.minijob-netto-rechner.de/favicon.ico',
   description:
     'Kostenloser Minijob Rechner 2026 für Deutschland – Brutto zu Netto berechnen für Arbeitnehmer und Arbeitgeber.',
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=61588221497294',
+    'https://x.com/MohdAasif763323',
+    'https://www.linkedin.com/in/mohd-aasif-44121a261',
+    'https://www.youtube.com/@violent34343'
+  ],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Customer Service',
@@ -201,6 +207,12 @@ export default function RootLayout({
         {/* Essential meta tags */}
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+
+        {/* Social Media Verification Links */}
+        <link rel="me" href="https://www.facebook.com/profile.php?id=61588221497294" />
+        <link rel="me" href="https://x.com/MohdAasif763323" />
+        <link rel="me" href="https://www.linkedin.com/in/mohd-aasif-44121a261" />
+        <link rel="me" href="https://www.youtube.com/@violent34343" />
 
         {/* Google AdSense - Deferred for performance */}
         <script

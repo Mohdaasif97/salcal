@@ -575,6 +575,13 @@ export default function MiniJobRechner() {
             <p className="text-xs text-gray-500">
               Stand: {selectedYear} • Alle Angaben ohne Gewähr • Berechnet mit aktuellen Minijob-Werten • Aktualisiert: Februar 2026
             </p>
+            {/* Social Media Links */}
+            <div className="mt-4 pt-4 border-t border-gray-300 flex flex-wrap gap-3 justify-center">
+              <a href="https://www.facebook.com/profile.php?id=61588221497294" target="_blank" rel="noopener noreferrer me" className="text-xs text-gray-600 hover:text-blue-600 transition-colors" title="Folge uns auf Facebook">📘 Facebook</a>
+              <a href="https://x.com/MohdAasif763323" target="_blank" rel="noopener noreferrer me" className="text-xs text-gray-600 hover:text-blue-600 transition-colors" title="Folge uns auf X">𝕏 X</a>
+              <a href="https://www.linkedin.com/in/mohd-aasif-44121a261" target="_blank" rel="noopener noreferrer me" className="text-xs text-gray-600 hover:text-blue-600 transition-colors" title="Folge uns auf LinkedIn">🔗 LinkedIn</a>
+              <a href="https://www.youtube.com/@violent34343" target="_blank" rel="noopener noreferrer me" className="text-xs text-gray-600 hover:text-blue-600 transition-colors" title="Folge uns auf YouTube">▶️ YouTube</a>
+            </div>
           </footer>
         </div>
       </main>
