@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -187,12 +188,6 @@ img {
 /* iOS Safari optimizations */
 html {
   scroll-behavior: smooth;
-}
-
-input[type="number"],
-input[type="text"] {
-  -webkit-user-zoom: 1;
-  font-size: 16px;
 }
 
 input {
