@@ -1,9 +1,12 @@
 'use client'
 
 /**
- * Responsive Social Media Links Component
- * Desktop: Shows icons + text (better UX, better SEO signal)
- * Mobile: Shows icons only (better performance)
+ * Optimized Social Media Links Component
+ * Responsive design without layout shift on either mobile or desktop
+ * 
+ * Desktop: Full text visible with proper spacing
+ * Mobile: Icons only with minimal spacing
+ * Key: Use CSS-in-JS to prevent Tailwind reflow issues
  */
 
 export default function SocialLinks() {
@@ -31,21 +34,70 @@ export default function SocialLinks() {
   ]
 
   return (
-    <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
-      {links.map((link) => (
-        <a
-          key={link.name}
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer me"
-          title={`Besuche uns auf ${link.name}`}
-          className="text-gray-600 hover:text-blue-600 transition-colors no-underline text-sm md:text-base"
-          aria-label={link.name}
-        >
-          <span className="inline-block">{link.icon}</span>
-          <span className="hidden md:inline ml-1">{link.name}</span>
-        </a>
-      ))}
-    </div>
+    <>
+      <style>{`
+        .social-links-container {
+          display: flex;
+          justify-content: center;
+          gap: 0.5rem;
+          flex-wrap: nowrap;
+        }
+        
+        .social-link {
+          color: rgb(75, 85, 99);
+          text-decoration: none;
+          white-space: nowrap;
+          transition: color 0.2s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 0.875rem;
+        }
+        
+        .social-link:hover {
+          color: rgb(37, 99, 235);
+        }
+        
+        .social-link-icon {
+          display: inline-block;
+          font-size: 1.125rem;
+        }
+        
+        .social-link-text {
+          display: none;
+        }
+        
+        @media (min-width: 768px) {
+          .social-links-container {
+            gap: 0.75rem;
+          }
+          
+          .social-link {
+            font-size: 0.9375rem;
+          }
+          
+          .social-link-text {
+            display: inline;
+          }
+        }
+      `}</style>
+      
+      <div className="social-links-container">
+        {links.map((link) => (
+          <a
+            key={link.name}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer me"
+            title={`Besuche uns auf ${link.name}`}
+            className="social-link"
+            aria-label={link.name}
+          >
+            <span className="social-link-icon">{link.icon}</span>
+            <span className="social-link-text">{link.name}</span>
+          </a>
+        ))}
+      </div>
+    </>
   )
 }
