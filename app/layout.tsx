@@ -208,7 +208,6 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;" />
 
         {/* Preload Google Fonts for faster LCP */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
