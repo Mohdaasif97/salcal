@@ -208,11 +208,8 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 
-        {/* Social Media Verification Links */}
-        <link rel="me" href="https://www.facebook.com/profile.php?id=61588221497294" />
-        <link rel="me" href="https://x.com/MohdAasif763323" />
-        <link rel="me" href="https://www.linkedin.com/in/mohd-aasif-44121a261" />
-        <link rel="me" href="https://www.youtube.com/@violent34343" />
+        {/* Social Profile Verification Links - Google rel="me" standard */}
+        {/* These are verified through the footer links below, optimized for mobile */}
 
         {/* Google AdSense - Deferred for performance */}
         <script
