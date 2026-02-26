@@ -6,7 +6,7 @@ import './globals.css'
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
-  display: 'swap',
+  display: 'block',
   preload: true,
   fallback: ['system-ui', 'arial'],
   adjustFontFallback: true,
@@ -209,13 +209,9 @@ export default function RootLayout({
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Preload Google Fonts for faster LCP */}
+        {/* Preconnect for critical resources - optimized font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" />
-        <noscript>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" />
-        </noscript>
 
         {/* Google AdSense - Deferred for performance */}
         <script
