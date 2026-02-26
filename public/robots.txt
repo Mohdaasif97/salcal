@@ -1,0 +1,20 @@
+# Minijob Rechner 2026 - Robots.txt
+# https://www.minijob-netto-rechner.de
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Allow Google bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+# Sitemap
+Sitemap: https://www.minijob-netto-rechner.de/sitemap.xml

@@ -7,9 +7,9 @@ const MiniJobRechner = dynamic(() => import('@/components/MiniJobRechner'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Minijob Rechner 2026 | Netto berechnen - Kostenlos & Aktuell',
+  title: 'Minijob Rechner 2026 | Kostenloser Minijob Rechner - Netto berechnen',
   description:
-    'Kostenloser Minijob Rechner 2026: Berechne dein Nettogehalt bei Minijob in Deutschland. Aktuelle Grenzwerte und einfache Berechnung.',
+    'Kostenloser Minijob Rechner 2026: Berechne dein Nettogehalt beim Minijob in Deutschland. Minijob Rechner mit aktuellen 2026 Grenzwerten. Einfach & schnell Minijob berechnen.',
   robots: {
     index: true,
     follow: true,
