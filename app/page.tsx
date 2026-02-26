@@ -1,5 +1,10 @@
 import { Metadata } from 'next'
-import MiniJobRechner from '@/components/MiniJobRechner'
+import dynamic from 'next/dynamic'
+
+const MiniJobRechner = dynamic(() => import('@/components/MiniJobRechner'), {
+  loading: () => <div className="min-h-screen flex items-center justify-center bg-white"><div className="text-gray-600">Lädt...</div></div>,
+  ssr: true,
+})
 
 export const metadata: Metadata = {
   title: 'Minijob Rechner 2026 | Netto berechnen - Kostenlos & Aktuell',

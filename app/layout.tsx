@@ -207,9 +207,11 @@ export default function RootLayout({
         {/* Essential meta tags */}
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Social Profile Verification Links - Google rel="me" standard */}
-        {/* These are verified through the footer links below, optimized for mobile */}
+        {/* Preconnect for critical resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
         {/* Google AdSense - Deferred for performance */}
         <script
