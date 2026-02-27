@@ -12,19 +12,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/kontakt`,
+      url: `${baseUrl}/kontakt/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/impressum`,
+      url: `${baseUrl}/impressum/`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/datenschutz`,
+      url: `${baseUrl}/datenschutz/`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.5,
