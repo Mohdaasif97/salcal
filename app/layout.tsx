@@ -37,11 +37,6 @@ const organizationSchema = {
     'https://www.linkedin.com/in/mohd-aasif-44121a261',
     'https://www.youtube.com/@violent34343'
   ],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'Customer Service',
-    url: 'https://www.minijob-netto-rechner.de/kontakt',
-  },
 }
 
 const webAppSchema = {

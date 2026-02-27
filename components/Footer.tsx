@@ -44,21 +44,6 @@ export default function Footer() {
                   Startseite
                 </a>
               </li>
-              <li>
-                <a href="/kontakt" className="text-slate-600 hover:text-blue-600 transition-colors">
-                  Kontakt
-                </a>
-              </li>
-              <li>
-                <a href="/impressum" className="text-slate-600 hover:text-blue-600 transition-colors">
-                  Impressum
-                </a>
-              </li>
-              <li>
-                <a href="/datenschutz" className="text-slate-600 hover:text-blue-600 transition-colors">
-                  Datenschutz
-                </a>
-              </li>
             </ul>
           </div>
 

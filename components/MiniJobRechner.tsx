@@ -563,13 +563,6 @@ export default function MiniJobRechner() {
 
           {/* Footer */}
           <footer className="border-t border-gray-200 pt-6 text-center text-xs sm:text-sm text-gray-600 mb-8">
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-4 text-xs sm:text-sm">
-              <a href="/datenschutz" className="hover:text-blue-600 transition-colors font-medium">Datenschutz</a>
-              <span>•</span>
-              <a href="/impressum" className="hover:text-blue-600 transition-colors font-medium">Impressum</a>
-              <span>•</span>
-              <a href="/kontakt" className="hover:text-blue-600 transition-colors font-medium">Kontakt</a>
-            </div>
             <p className="text-xs text-gray-500">
               <strong>Minijob-Netto-Rechner.de</strong> – Kostenloser Minijob Rechner für Deutschland
             </p>
