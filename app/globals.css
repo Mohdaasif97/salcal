@@ -144,11 +144,13 @@ img {
   user-select: none;
 }
 
-/* Safe area insets (Notch support) */
-@supports (padding: max(0px)) {
-  body {
-    padding-left: max(1rem, env(safe-area-inset-left));
-    padding-right: max(1rem, env(safe-area-inset-right));
+/* Safe area insets (Notch support) - mobile only */
+@media (max-width: 639px) {
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+    }
   }
 }
 
