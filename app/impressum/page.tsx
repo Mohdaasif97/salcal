@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Impressum | Minijob Rechner',
   robots: 'index, follow',
+  alternates: {
+    canonical: 'https://www.minijob-netto-rechner.de/impressum/',
+  },
 }
 
 export default function Impressum() {

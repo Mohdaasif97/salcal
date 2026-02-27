@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Datenschutzerklärung | Minijob Rechner',
   robots: 'index, follow',
+  alternates: {
+    canonical: 'https://www.minijob-netto-rechner.de/datenschutz/',
+  },
 }
 
 export default function Datenschutz() {
