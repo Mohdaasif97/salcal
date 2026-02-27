@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Datenschutzerklärung | Minijob Rechner',
-  robots: 'noindex, follow',
+  robots: 'index, follow',
 }
 
 export default function Datenschutz() {

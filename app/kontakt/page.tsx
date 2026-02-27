@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Kontakt | Minijob Rechner',
-  robots: 'noindex, follow',
+  robots: 'index, follow',
 }
 
 export default function Kontakt() {
