@@ -1,23 +1,10 @@
-const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/kontakt',
-        destination: '/',
-        permanent: true, // 301 redirect
-      },
-      {
-        source: '/datenschutz',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/impressum',
-        destination: '/',
-        permanent: true,
-      },
-    ]
-  },
-}
+import type { NextConfig } from "next";
 
-export default nextConfig
+const nextConfig: NextConfig = {
+  reactCompiler: true,
+  trailingSlash: true,
+  compress: true,
+  poweredByHeader: false,
+};
+
+export default nextConfig;
