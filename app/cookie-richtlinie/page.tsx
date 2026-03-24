@@ -1,10 +1,15 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ResetConsentButton } from '@/components/CookieConsent'
+
+export const metadata: Metadata = {
+  alternates: { canonical: 'https://www.minijob-netto-rechner.de/cookie-richtlinie' },
+}
 
 const cookies = [
   { name: 'cookie_consent_v1', provider: 'minijob-netto-rechner.de', purpose: 'Speichert Ihre Cookie-Einwilligungsentscheidung', duration: '12 Monate', type: 'Notwendig' },
   { name: '_ga', provider: 'Google Analytics', purpose: 'Unterscheidet Benutzer (eindeutige ID)', duration: '2 Jahre', type: 'Analytisch' },
-  { name: '_ga_XXXXXXXX', provider: 'Google Analytics (GA4)', purpose: 'Speichert den Sitzungsstatus', duration: '2 Jahre', type: 'Analytisch' },
+  { name: '_ga_R3EXTSM03B', provider: 'Google Analytics (GA4)', purpose: 'Speichert den Sitzungsstatus', duration: '2 Jahre', type: 'Analytisch' },
   { name: '_gid', provider: 'Google Analytics', purpose: 'Unterscheidet Benutzer (24h-Sitzung)', duration: '24 Stunden', type: 'Analytisch' },
 ]
 

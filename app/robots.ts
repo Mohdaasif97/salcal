@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://minijob-netto-rechner.de/sitemap.xml',
+    sitemap: 'https://www.minijob-netto-rechner.de/sitemap.xml',
   }
 }
