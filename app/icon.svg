@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 360" width="240" height="360">
+  <defs>
+    <!-- Body gradient: dark charcoal with slight warm tint -->
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2C2C2E"/>
+      <stop offset="50%" stop-color="#1C1C1E"/>
+      <stop offset="100%" stop-color="#111113"/>
+    </linearGradient>
+
+    <!-- Side highlight to simulate rounded 3D body -->
+    <linearGradient id="sideSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="8%"   stop-color="#ffffff" stop-opacity="0.04"/>
+      <stop offset="50%"  stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="92%"  stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.07"/>
+    </linearGradient>
+
+    <!-- Screen dark glass -->
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#060e1c"/>
+    </linearGradient>
+
+    <!-- Screen inner glow -->
+    <radialGradient id="screenGlow" cx="80%" cy="20%" r="60%">
+      <stop offset="0%"   stop-color="#1a3a5c" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#060e1c" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Number button gradient -->
+    <linearGradient id="numBtn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#3A3A3C"/>
+      <stop offset="100%" stop-color="#2A2A2C"/>
+    </linearGradient>
+
+    <!-- Function button gradient (top row) -->
+    <linearGradient id="fnBtn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#545456"/>
+      <stop offset="100%" stop-color="#3C3C3E"/>
+    </linearGradient>
+
+    <!-- Orange operator button -->
+    <linearGradient id="opBtn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FF9F0A"/>
+      <stop offset="100%" stop-color="#D4780A"/>
+    </linearGradient>
+
+    <!-- Button pressed shadow -->
+    <filter id="btnShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Outer body shadow -->
+    <filter id="bodyShadow" x="-10%" y="-5%" width="120%" height="115%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+
+    <!-- Screen text glow -->
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Clip for body -->
+    <clipPath id="bodyClip">
+      <rect x="20" y="10" width="200" height="340" rx="28" ry="28"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── OUTER BODY ── -->
+  <rect x="20" y="10" width="200" height="340" rx="28" ry="28"
+        fill="url(#bodyGrad)" filter="url(#bodyShadow)"/>
+
+  <!-- Side sheen overlay -->
+  <rect x="20" y="10" width="200" height="340" rx="28" ry="28"
+        fill="url(#sideSheen)"/>
+
+  <!-- Top gloss highlight -->
+  <ellipse cx="120" cy="18" rx="80" ry="10"
+           fill="white" opacity="0.06"/>
+
+  <!-- Outer rim border -->
+  <rect x="20" y="10" width="200" height="340" rx="28" ry="28"
+        fill="none" stroke="#444446" stroke-width="1"/>
+
+  <!-- ── SCREEN BEZEL ── -->
+  <rect x="32" y="22" width="176" height="105" rx="10" ry="10"
+        fill="#0a0a0c" stroke="#333335" stroke-width="1"/>
+
+  <!-- ── SCREEN GLASS ── -->
+  <rect x="36" y="26" width="168" height="97" rx="7" ry="7"
+        fill="url(#screenGrad)"/>
+  <rect x="36" y="26" width="168" height="97" rx="7" ry="7"
+        fill="url(#screenGlow)"/>
+
+  <!-- Screen glass reflection streak -->
+  <rect x="36" y="26" width="168" height="20" rx="7" ry="7"
+        fill="white" opacity="0.035"/>
+  <line x1="48" y1="28" x2="110" y2="76"
+        stroke="white" stroke-width="8" stroke-linecap="round" opacity="0.025"/>
+
+  <!-- ── DISPLAY CONTENT ── -->
+  <!-- Small label top-left -->
+  <text x="48" y="50" font-family="'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif"
+        font-size="11" fill="#4A7FA5" opacity="0.8" letter-spacing="0.5">0</text>
+
+  <!-- Main number -->
+  <text x="196" y="105" font-family="'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif"
+        font-size="52" font-weight="200" fill="#FFFFFF"
+        text-anchor="end" filter="url(#textGlow)" opacity="0.95">0</text>
+
+  <!-- ── BUTTON AREA ── -->
+  <!-- Subtle inset panel behind buttons -->
+  <rect x="28" y="140" width="184" height="198" rx="16" ry="16"
+        fill="#161618" opacity="0.6"/>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ROW 1 — function buttons: AC  +/-  %  ÷    -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <!-- AC -->
+  <rect x="34" y="150" width="44" height="44" rx="22" fill="url(#fnBtn)" filter="url(#btnShadow)"/>
+  <rect x="34" y="150" width="44" height="44" rx="22" fill="none" stroke="#606062" stroke-width="0.5"/>
+  <text x="56" y="178" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="16" font-weight="500" fill="#1C1C1E" text-anchor="middle">AC</text>
+
+  <!-- +/- -->
+  <rect x="88" y="150" width="44" height="44" rx="22" fill="url(#fnBtn)" filter="url(#btnShadow)"/>
+  <rect x="88" y="150" width="44" height="44" rx="22" fill="none" stroke="#606062" stroke-width="0.5"/>
+  <text x="110" y="178" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="18" font-weight="400" fill="#1C1C1E" text-anchor="middle">⁺∕₋</text>
+
+  <!-- % -->
+  <rect x="142" y="150" width="44" height="44" rx="22" fill="url(#fnBtn)" filter="url(#btnShadow)"/>
+  <rect x="142" y="150" width="44" height="44" rx="22" fill="none" stroke="#606062" stroke-width="0.5"/>
+  <text x="164" y="179" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="18" font-weight="400" fill="#1C1C1E" text-anchor="middle">%</text>
+
+  <!-- ÷ -->
+  <rect x="196" y="150" width="44" height="44" rx="22" fill="url(#opBtn)" filter="url(#btnShadow)"/>
+  <rect x="196" y="150" width="44" height="44" rx="22" fill="none" stroke="#FFB830" stroke-width="0.5"/>
+  <text x="218" y="180" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="26" font-weight="300" fill="#ffffff" text-anchor="middle">÷</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ROW 2 — 7  8  9  ×                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <rect x="34"  y="204" width="44" height="44" rx="22" fill="url(#numBtn)" filter="url(#btnShadow)"/>
+  <rect x="34"  y="204" width="44" height="44" rx="22" fill="none" stroke="#505052" stroke-width="0.5"/>
+  <text x="56"  y="232" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">7</text>
+
+  <rect x="88"  y="204" width="44" height="44" rx="22" fill="url(#numBtn)" filter="url(#btnShadow)"/>
+  <rect x="88"  y="204" width="44" height="44" rx="22" fill="none" stroke="#505052" stroke-width="0.5"/>
+  <text x="110" y="232" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">8</text>
+
+  <rect x="142" y="204" width="44" height="44" rx="22" fill="url(#numBtn)" filter="url(#btnShadow)"/>
+  <rect x="142" y="204" width="44" height="44" rx="22" fill="none" stroke="#505052" stroke-width="0.5"/>
+  <text x="164" y="232" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">9</text>
+
+  <rect x="196" y="204" width="44" height="44" rx="22" fill="url(#opBtn)" filter="url(#btnShadow)"/>
+  <rect x="196" y="204" width="44" height="44" rx="22" fill="none" stroke="#FFB830" stroke-width="0.5"/>
+  <text x="218" y="233" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="26" font-weight="300" fill="#ffffff" text-anchor="middle">×</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ROW 3 — 4  5  6  −                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <rect x="34"  y="258" width="44" height="44" rx="22" fill="url(#numBtn)" filter="url(#btnShadow)"/>
+  <rect x="34"  y="258" width="44" height="44" rx="22" fill="none" stroke="#505052" stroke-width="0.5"/>
+  <text x="56"  y="286" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">4</text>
+
+  <rect x="88"  y="258" width="44" height="44" rx="22" fill="url(#numBtn)" filter="url(#btnShadow)"/>
+  <rect x="88"  y="258" width="44" height="44" rx="22" fill="none" stroke="#505052" stroke-width="0.5"/>
+  <text x="110" y="286" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">5</text>
+
+  <rect x="142" y="258" width="44" height="44" rx="22" fill="url(#numBtn)" filter="url(#btnShadow)"/>
+  <rect x="142" y="258" width="44" height="44" rx="22" fill="none" stroke="#505052" stroke-width="0.5"/>
+  <text x="164" y="286" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">6</text>
+
+  <rect x="196" y="258" width="44" height="44" rx="22" fill="url(#opBtn)" filter="url(#btnShadow)"/>
+  <rect x="196" y="258" width="44" height="44" rx="22" fill="none" stroke="#FFB830" stroke-width="0.5"/>
+  <text x="218" y="287" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="28" font-weight="300" fill="#ffffff" text-anchor="middle">−</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ROW 4 — 1  2  3  +                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <rect x="34"  y="312" width="44" height="30" rx="15" fill="url(#numBtn)" filter="url(#btnShadow)"/>
+  <rect x="34"  y="312" width="44" height="30" rx="15" fill="none" stroke="#505052" stroke-width="0.5"/>
+  <text x="56"  y="333" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">1</text>
+
+  <rect x="88"  y="312" width="44" height="30" rx="15" fill="url(#numBtn)" filter="url(#btnShadow)"/>
+  <rect x="88"  y="312" width="44" height="30" rx="15" fill="none" stroke="#505052" stroke-width="0.5"/>
+  <text x="110" y="333" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">2</text>
+
+  <rect x="142" y="312" width="44" height="30" rx="15" fill="url(#numBtn)" filter="url(#btnShadow)"/>
+  <rect x="142" y="312" width="44" height="30" rx="15" fill="none" stroke="#505052" stroke-width="0.5"/>
+  <text x="164" y="333" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">3</text>
+
+  <rect x="196" y="312" width="44" height="30" rx="15" fill="url(#opBtn)" filter="url(#btnShadow)"/>
+  <rect x="196" y="312" width="44" height="30" rx="15" fill="none" stroke="#FFB830" stroke-width="0.5"/>
+  <text x="218" y="333" font-family="'SF Pro Display','Helvetica Neue',Helvetica,sans-serif"
+        font-size="24" font-weight="300" fill="#ffffff" text-anchor="middle">+</text>
+</svg>
