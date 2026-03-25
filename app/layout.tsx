@@ -22,18 +22,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/*
           GDPR-compliant GA4 setup:
           - Consent is initialized as 'denied' BEFORE GA loads
-          - CookieConsent component calls gtag('consent','update') if user accepts
+          - Returning users who already accepted have consent restored immediately from localStorage
+          - CookieConsent component calls gtag('consent','update') for new users if they accept
           - GA4 respects the consent mode and will not set cookies until granted
         */}
         <Script id="gtag-consent-init" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', {
-              analytics_storage: 'denied',
-              ad_storage: 'denied',
-              wait_for_update: 500,
-            });
+            try {
+              var saved = JSON.parse(localStorage.getItem('cookie_consent_v1') || 'null');
+              if (saved && saved.given && saved.analytics) {
+                gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied' });
+              } else {
+                gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+              }
+            } catch(e) {
+              gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+            }
           `}
         </Script>
         <Script
@@ -47,11 +53,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-<body>
-  {children}
-  <Footer />
-  <CookieConsent />
-</body>
+      <body>
+        {children}
+        <Footer />
+        <CookieConsent />
+      </body>
     </html>
   )
 }
