@@ -4,7 +4,7 @@ import './globals.css'
 import CookieConsent from '@/components/CookieConsent'
 import Footer from '../components/Footer'
 
-const GA_ID = 'G-R3EXTSM03B'
+const GA_ID = 'G-EHTS48E8ZV'
 
 export const metadata: Metadata = {
   title: {
