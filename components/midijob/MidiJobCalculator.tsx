@@ -128,6 +128,33 @@ function ResultRow({ label, value, negative, bold, dimmed, tooltip }: {
   )
 }
 
+function AffiliateBox() {
+  return (
+    <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-4 relative">
+      <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wide bg-blue-600 text-white px-2 py-0.5 rounded-full">
+        Empfehlung
+      </span>
+      <p className="text-sm font-bold text-blue-800 mb-1">💡 Steuererklärung für Midijobber</p>
+      <p className="text-sm text-blue-700 leading-relaxed mb-3">
+        Du hast deine Midijob-Beiträge berechnet. Mit WISO Steuer kannst du deine Steuererklärung
+        einfach online erstellen und prüfen, ob du eine Steuererstattung erhalten kannst.
+      </p>
+      <a
+        href="https://www.awin1.com/awclick.php?gid=378226&mid=17387&awinaffid=2961797&linkid=2538464&clickref="
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+      >
+        Arbeitnehmer-Steuererklärung →
+      </a>
+      <p className="text-[11px] text-blue-400 mt-2.5 leading-snug">
+        Werbelink (Affiliate): Wenn du über diesen Link kaufst, erhalten wir möglicherweise eine
+        Provision. Für dich entstehen keine zusätzlichen Kosten.
+      </p>
+    </div>
+  )
+}
+
 // ── Calculation ────────────────────────────────────────────────────────────
 function calculate(
   B: number,
@@ -403,6 +430,8 @@ export default function MidijobCalculator() {
                 <p className="text-xs text-orange-500 mt-0.5">{result.inGZ ? 'Gleitzone aktiv' : 'Außerhalb Gleitzone'}</p>
               </div>
             </div>
+
+            <AffiliateBox />
 
             {/* AN block */}
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
