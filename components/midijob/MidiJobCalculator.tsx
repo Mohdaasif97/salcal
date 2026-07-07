@@ -128,22 +128,22 @@ function ResultRow({ label, value, negative, bold, dimmed, tooltip }: {
   )
 }
 
-function AffiliateBox() {
+function AffiliateBox({ anTotal }: { anTotal: number }) {
   return (
     <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-4 relative">
       <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wide bg-blue-600 text-white px-2 py-0.5 rounded-full">
         Empfehlung
       </span>
-      <p className="text-sm font-bold text-blue-800 mb-1">💡 Steuererklärung für Midijobber</p>
+      <p className="text-sm font-bold text-blue-800 mb-1">💡 Geld vom Finanzamt zurückbekommen?</p>
       <p className="text-sm text-blue-700 leading-relaxed mb-3">
-        Du hast deine Midijob-Beiträge berechnet. Mit WISO Steuer kannst du deine Steuererklärung
-        einfach online erstellen und prüfen, ob du eine Steuererstattung erhalten kannst.
+        Du zahlst <strong>{fmt(anTotal)} € Beiträge</strong> pro Monat — prüfe jetzt mit WISO Steuer,
+        ob du eine Steuererstattung erhalten kannst. Schnell, einfach, online.
       </p>
       <a
         href="https://www.awin1.com/awclick.php?gid=378226&mid=17387&awinaffid=2961797&linkid=2538464&clickref="
         target="_blank"
         rel="noopener noreferrer sponsored"
-        className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+        className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors shadow-sm"
       >
         Arbeitnehmer-Steuererklärung →
       </a>
@@ -431,8 +431,6 @@ export default function MidijobCalculator() {
               </div>
             </div>
 
-            <AffiliateBox />
-
             {/* AN block */}
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
               <div className="bg-gray-50 border-b border-gray-200 px-4 py-2.5">
@@ -467,6 +465,8 @@ export default function MidijobCalculator() {
                 <ResultRow label="Gesamtbeitrag AG" value={result.ag.total} bold />
               </div>
             </div>
+
+            <AffiliateBox anTotal={result.an.total} />
 
           </div>
         )}
