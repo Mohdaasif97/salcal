@@ -119,42 +119,46 @@ function ResultRow({ label, value, rate, negative, bold, dimmed, tooltip }: {
   )
 }
 
-// 320x50 banner — shown between summary cards and detail breakdown
-function AdBannerSmall() {
+// ── Ad banner (iframe-isolated so multiple ad slots don't clobber a shared
+//    `atOptions` global — each slot gets its own window/document) ──────────
+function AdBanner({ adKey, width, height }: { adKey: string; width: number; height: number }) {
   const ref = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     if (!ref.current || ref.current.childElementCount > 0) return
-    const script1 = document.createElement('script')
-    script1.innerHTML = `atOptions = {'key':'651fd88f51ec249f2c68668cd72931a8','format':'iframe','height':50,'width':320,'params':{}};`
-    const script2 = document.createElement('script')
-    script2.src = 'https://www.highrevenueformat.com/651fd88f51ec249f2c68668cd72931a8/invoke.js'
-    script2.async = true
-    ref.current.appendChild(script1)
-    ref.current.appendChild(script2)
-  }, [])
+
+    const iframe = document.createElement('iframe')
+    iframe.style.width = `${width}px`
+    iframe.style.height = `${height}px`
+    iframe.style.border = 'none'
+    iframe.style.overflow = 'hidden'
+    iframe.title = 'advertisement'
+    ref.current.appendChild(iframe)
+
+    const doc = iframe.contentWindow?.document
+    if (!doc) return
+
+    doc.open()
+    doc.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <style>html,body{margin:0;padding:0;overflow:hidden;background:transparent;}</style>
+        </head>
+        <body>
+          <script>
+            atOptions = {'key':'${adKey}','format':'iframe','height':${height},'width':${width},'params':{}};
+          </script>
+          <script src="https://www.highrevenueformat.com/${adKey}/invoke.js"></script>
+        </body>
+      </html>
+    `)
+    doc.close()
+  }, [adKey, width, height])
+
   return (
     <div className="flex justify-center my-1">
-      <div ref={ref} style={{ width: 320, height: 50, overflow: 'hidden' }} />
-    </div>
-  )
-}
-
-// 300x250 banner — shown at the bottom after all results
-function AdBannerLarge() {
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    if (!ref.current || ref.current.childElementCount > 0) return
-    const script1 = document.createElement('script')
-    script1.innerHTML = `atOptions = {'key':'60325f09b6c48a1dd231fe9c5298233c','format':'iframe','height':250,'width':300,'params':{}};`
-    const script2 = document.createElement('script')
-    script2.src = 'https://www.highrevenueformat.com/60325f09b6c48a1dd231fe9c5298233c/invoke.js'
-    script2.async = true
-    ref.current.appendChild(script1)
-    ref.current.appendChild(script2)
-  }, [])
-  return (
-    <div className="flex justify-center mt-2">
-      <div ref={ref} style={{ width: 300, height: 250, overflow: 'hidden' }} />
+      <div ref={ref} style={{ width, height, overflow: 'hidden' }} />
     </div>
   )
 }
@@ -292,14 +296,18 @@ export default function MiniJobCalculator() {
 
       {/* RIGHT: results */}
       <div className="w-full flex-1 min-w-0">
+
+        {/* Small ad now always visible, independent of whether a result exists */}
+        <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
+
         {!result && !error && (
-          <div className="flex items-center justify-center h-48 border-2 border-dashed border-gray-200 rounded-xl">
+          <div className="flex items-center justify-center h-48 border-2 border-dashed border-gray-200 rounded-xl mt-3">
             <p className="text-sm text-gray-400">Betrag eingeben – Ergebnis erscheint sofort</p>
           </div>
         )}
 
         {result && (
-          <div className="space-y-4">
+          <div className="space-y-4 mt-3">
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-green-50 border border-green-100 rounded-xl px-4 py-3">
                 <p className="text-xs font-semibold text-green-600 uppercase tracking-wide">Netto / Monat</p>
@@ -312,8 +320,6 @@ export default function MiniJobCalculator() {
                 <p className="text-xs text-orange-500 mt-0.5">+ {fmt(result.totalContributions)} € Abgaben</p>
               </div>
             </div>
-
-            <AdBannerSmall />
 
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
               <div className="bg-gray-50 border-b border-gray-200 px-4 py-2.5">
@@ -360,7 +366,8 @@ export default function MiniJobCalculator() {
               </div>
             </div>
 
-            <AdBannerLarge />
+            {/* Large ad shows after a calculation */}
+            <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
           </div>
         )}
       </div>

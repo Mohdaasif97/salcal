@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import AdBanner from './AdBanner'
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -227,6 +228,13 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── Ad: small banner, high visibility just below the fold ── */}
+        <section className="bg-white border-b border-gray-200 py-4">
+          <div className="max-w-6xl mx-auto px-4 flex justify-center">
+            <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
+          </div>
+        </section>
+
         {/* ── Tools: Minijob primary (2/3) + Midijob sidebar (1/3) ── */}
         <section className="max-w-6xl mx-auto px-4 py-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
@@ -408,6 +416,13 @@ export default function HomePage() {
               <h3 className="font-bold text-gray-900 mb-1">Sofort & kostenlos</h3>
               <p className="text-sm text-gray-500 leading-relaxed">Brutto eingeben, Netto sehen — inklusive aller Steuern, Abgaben und Arbeitgeberkosten.</p>
             </div>
+          </div>
+        </section>
+
+        {/* ── Ad: large banner before footer ── */}
+        <section className="bg-white pb-10">
+          <div className="max-w-6xl mx-auto px-4 flex justify-center">
+            <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
           </div>
         </section>
 
