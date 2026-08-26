@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react'
 import { AlertCircle, HelpCircle } from 'lucide-react'
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -128,29 +128,40 @@ function ResultRow({ label, value, negative, bold, dimmed, tooltip }: {
   )
 }
 
-function AffiliateBox({ anTotal }: { anTotal: number }) {
+function AdBannerSmall() {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!ref.current || ref.current.childElementCount > 0) return
+    const script1 = document.createElement('script')
+    script1.innerHTML = `atOptions = {'key':'651fd88f51ec249f2c68668cd72931a8','format':'iframe','height':50,'width':320,'params':{}};`
+    const script2 = document.createElement('script')
+    script2.src = 'https://www.highrevenueformat.com/651fd88f51ec249f2c68668cd72931a8/invoke.js'
+    script2.async = true
+    ref.current.appendChild(script1)
+    ref.current.appendChild(script2)
+  }, [])
   return (
-    <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-4 relative">
-      <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wide bg-blue-600 text-white px-2 py-0.5 rounded-full">
-        Empfehlung
-      </span>
-      <p className="text-sm font-bold text-blue-800 mb-1">💡 Geld vom Finanzamt zurückbekommen?</p>
-      <p className="text-sm text-blue-700 leading-relaxed mb-3">
-        Du zahlst <strong>{fmt(anTotal)} € Beiträge</strong> pro Monat — prüfe jetzt mit WISO Steuer,
-        ob du eine Steuererstattung erhalten kannst. Schnell, einfach, online.
-      </p>
-      <a
-        href="https://www.awin1.com/awclick.php?gid=378226&mid=17387&awinaffid=2961797&linkid=2538464&clickref="
-        target="_blank"
-        rel="noopener noreferrer sponsored"
-        className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors shadow-sm"
-      >
-        Arbeitnehmer-Steuererklärung →
-      </a>
-      <p className="text-[11px] text-blue-400 mt-2.5 leading-snug">
-        Werbelink (Affiliate): Wenn du über diesen Link kaufst, erhalten wir möglicherweise eine
-        Provision. Für dich entstehen keine zusätzlichen Kosten.
-      </p>
+    <div className="flex justify-center my-1">
+      <div ref={ref} style={{ width: 320, height: 50, overflow: 'hidden' }} />
+    </div>
+  )
+}
+
+function AdBannerLarge() {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!ref.current || ref.current.childElementCount > 0) return
+    const script1 = document.createElement('script')
+    script1.innerHTML = `atOptions = {'key':'60325f09b6c48a1dd231fe9c5298233c','format':'iframe','height':250,'width':300,'params':{}};`
+    const script2 = document.createElement('script')
+    script2.src = 'https://www.highrevenueformat.com/60325f09b6c48a1dd231fe9c5298233c/invoke.js'
+    script2.async = true
+    ref.current.appendChild(script1)
+    ref.current.appendChild(script2)
+  }, [])
+  return (
+    <div className="flex justify-center mt-2">
+      <div ref={ref} style={{ width: 300, height: 250, overflow: 'hidden' }} />
     </div>
   )
 }
@@ -431,6 +442,8 @@ export default function MidijobCalculator() {
               </div>
             </div>
 
+            <AdBannerSmall />
+
             {/* AN block */}
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
               <div className="bg-gray-50 border-b border-gray-200 px-4 py-2.5">
@@ -466,7 +479,7 @@ export default function MidijobCalculator() {
               </div>
             </div>
 
-            <AffiliateBox anTotal={result.an.total} />
+            <AdBannerLarge />
 
           </div>
         )}
