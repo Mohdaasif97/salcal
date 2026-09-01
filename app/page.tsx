@@ -187,7 +187,14 @@ export default function HomePage() {
         </nav>
 
         {/* ── Hero ── */}
-        <section className="bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 text-white">
+        <section className="relative bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 text-white">
+
+          {/* Ad: small corner unit — top-right of hero, desktop only */}
+          <div className="hidden sm:block absolute top-4 right-4 z-20 bg-white/95 rounded-lg p-1 shadow-lg">
+            <span className="block text-center text-[9px] uppercase tracking-wider text-gray-400 font-medium mb-0.5">Anzeige</span>
+            <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
+          </div>
+
           <div className="max-w-6xl mx-auto px-4 py-14 sm:py-20 text-center">
             <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wide uppercase">
               ✅ Aktualisiert für 2026 · Minijob-Grenze 603 €
@@ -215,6 +222,12 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Ad: small corner unit — mobile fallback (absolute corner placement doesn't fit small screens) */}
+        <div className="sm:hidden flex flex-col items-center gap-1 py-3 bg-white border-b border-gray-200">
+          <span className="text-[9px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
+          <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
+        </div>
+
         {/* ── Stats bar ── */}
         <section className="bg-white border-b border-gray-200" aria-label="Minijob Kennzahlen 2026">
           <div className="max-w-6xl mx-auto px-4 py-7 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
@@ -225,20 +238,6 @@ export default function HomePage() {
                 <p className="text-xs text-gray-500">{s.sub}</p>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* ── Ads: side-by-side, both visible on load, with breathing room ── */}
-        <section className="bg-white border-b border-gray-200 py-6">
-          <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-center items-start gap-x-10 gap-y-6">
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
-              <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
-            </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
-              <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
-            </div>
           </div>
         </section>
 
@@ -284,6 +283,12 @@ export default function HomePage() {
 
             {/* Secondary sidebar: Midijob + info boxes */}
             <div className="lg:w-72 flex flex-col gap-5">
+
+              {/* Ad: medium rectangle, sidebar rail */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-4 flex flex-col items-center gap-1.5">
+                <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
+                <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
+              </div>
 
               {/* Midijob card — visually quieter */}
               <Link

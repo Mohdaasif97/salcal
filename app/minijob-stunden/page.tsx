@@ -91,24 +91,35 @@ export default function MinijobStundenPage() {
       />
 
       <div className="min-h-screen bg-gray-50">
-        <MinijobStundenHero />
 
-        {/* ── Ads: side-by-side, both visible on load, with breathing room ── */}
-        <div className="max-w-6xl mx-auto px-4 pt-4 sm:pt-6">
-          <div className="flex flex-wrap justify-center items-start gap-x-10 gap-y-6 bg-white rounded-xl border border-gray-100 py-6">
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
-              <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
-            </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
-              <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
-            </div>
+        {/* Hero wrapped for corner ad positioning */}
+        <div className="relative">
+          <MinijobStundenHero />
+
+          {/* Ad: small corner unit — top-right of hero, desktop only */}
+          <div className="hidden sm:block absolute top-4 right-4 z-20 bg-white/95 rounded-lg p-1 shadow-lg">
+            <span className="block text-center text-[9px] uppercase tracking-wider text-gray-400 font-medium mb-0.5">Anzeige</span>
+            <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
           </div>
+        </div>
+
+        {/* Ad: small corner unit — mobile fallback (absolute corner placement doesn't fit small screens) */}
+        <div className="sm:hidden flex flex-col items-center gap-1 py-3 bg-white border-b border-gray-200">
+          <span className="text-[9px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
+          <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
         </div>
 
         <main className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
           <MinijobStundenStats />
+
+          {/* Ad: medium rectangle — separated from the corner ad, placed between Stats and Content */}
+          <div className="flex justify-center my-8">
+            <div className="bg-white border border-gray-200 rounded-xl p-4 flex flex-col items-center gap-1.5">
+              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
+              <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
+            </div>
+          </div>
+
           <MinijobStundenContent />
           <MinijobStundenFaq />
 
