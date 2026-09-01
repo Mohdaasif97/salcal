@@ -4,7 +4,7 @@ import MinijobStundenHero from '@/components/minijob-stunden/MinijobStundenHero'
 import MinijobStundenStats from '@/components/minijob-stunden/MinijobStundenStats'
 import MinijobStundenContent from '@/components/minijob-stunden/MinijobStundenContent'
 import MinijobStundenFaq, { faqsStunden } from '@/components/minijob-stunden/MinijobStundenFaq'
-import AdBanner from '@/components/AdBanner'
+import AdBanner from '@/components/minijob-stunden/AdBanner'
 
 const YEAR = 2026
 const CANONICAL_URL = 'https://www.minijob-netto-rechner.de/minijob-stunden'
