@@ -241,6 +241,16 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Ad: medium rectangle, placed right after stats so it's visible on laptop screens without scrolling */}
+        <section className="bg-white border-b border-gray-200 py-5">
+          <div className="max-w-6xl mx-auto px-4 flex justify-center">
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
+              <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
+            </div>
+          </div>
+        </section>
+
         {/* ── Tools: Minijob primary (2/3) + Midijob sidebar (1/3) ── */}
         <section className="max-w-6xl mx-auto px-4 py-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
@@ -283,12 +293,6 @@ export default function HomePage() {
 
             {/* Secondary sidebar: Midijob + info boxes */}
             <div className="lg:w-72 flex flex-col gap-5">
-
-              {/* Ad: medium rectangle, sidebar rail */}
-              <div className="bg-white border border-gray-200 rounded-2xl p-4 flex flex-col items-center gap-1.5">
-                <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
-                <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
-              </div>
 
               {/* Midijob card — visually quieter */}
               <Link
