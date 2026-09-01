@@ -228,10 +228,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── Ad: small banner, high visibility just below the fold ── */}
+        {/* ── Ads: both visible immediately, right below the hero — no scrolling needed ── */}
         <section className="bg-white border-b border-gray-200 py-4">
-          <div className="max-w-6xl mx-auto px-4 flex justify-center">
+          <div className="max-w-6xl mx-auto px-4 flex flex-col items-center gap-4">
             <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
+            <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
           </div>
         </section>
 
@@ -416,13 +417,6 @@ export default function HomePage() {
               <h3 className="font-bold text-gray-900 mb-1">Sofort & kostenlos</h3>
               <p className="text-sm text-gray-500 leading-relaxed">Brutto eingeben, Netto sehen — inklusive aller Steuern, Abgaben und Arbeitgeberkosten.</p>
             </div>
-          </div>
-        </section>
-
-        {/* ── Ad: large banner before footer ── */}
-        <section className="bg-white pb-10">
-          <div className="max-w-6xl mx-auto px-4 flex justify-center">
-            <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
           </div>
         </section>
 

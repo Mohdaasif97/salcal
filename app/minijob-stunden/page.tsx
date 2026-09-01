@@ -4,6 +4,7 @@ import MinijobStundenHero from '@/components/minijob-stunden/MinijobStundenHero'
 import MinijobStundenStats from '@/components/minijob-stunden/MinijobStundenStats'
 import MinijobStundenContent from '@/components/minijob-stunden/MinijobStundenContent'
 import MinijobStundenFaq, { faqsStunden } from '@/components/minijob-stunden/MinijobStundenFaq'
+import AdBanner from '@/components/AdBanner'
 
 const YEAR = 2026
 const CANONICAL_URL = 'https://www.minijob-netto-rechner.de/minijob-stunden'
@@ -91,6 +92,12 @@ export default function MinijobStundenPage() {
 
       <div className="min-h-screen bg-gray-50">
         <MinijobStundenHero />
+
+        {/* ── Ads: both visible immediately, right below the hero ── */}
+        <div className="max-w-6xl mx-auto px-4 pt-4 sm:pt-6 flex flex-col items-center gap-4">
+          <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
+          <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
+        </div>
 
         <main className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
           <MinijobStundenStats />
