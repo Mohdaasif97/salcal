@@ -228,11 +228,17 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── Ads: both visible immediately, right below the hero — no scrolling needed ── */}
-        <section className="bg-white border-b border-gray-200 py-4">
-          <div className="max-w-6xl mx-auto px-4 flex flex-col items-center gap-4">
-            <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
-            <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
+        {/* ── Ads: side-by-side, both visible on load, with breathing room ── */}
+        <section className="bg-white border-b border-gray-200 py-6">
+          <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-center items-start gap-x-10 gap-y-6">
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
+              <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
+              <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
+            </div>
           </div>
         </section>
 

@@ -93,10 +93,18 @@ export default function MinijobStundenPage() {
       <div className="min-h-screen bg-gray-50">
         <MinijobStundenHero />
 
-        {/* ── Ads: both visible immediately, right below the hero ── */}
-        <div className="max-w-6xl mx-auto px-4 pt-4 sm:pt-6 flex flex-col items-center gap-4">
-          <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
-          <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
+        {/* ── Ads: side-by-side, both visible on load, with breathing room ── */}
+        <div className="max-w-6xl mx-auto px-4 pt-4 sm:pt-6">
+          <div className="flex flex-wrap justify-center items-start gap-x-10 gap-y-6 bg-white rounded-xl border border-gray-100 py-6">
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
+              <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
+              <AdBanner adKey="60325f09b6c48a1dd231fe9c5298233c" width={300} height={250} />
+            </div>
+          </div>
         </div>
 
         <main className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
