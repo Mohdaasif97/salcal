@@ -18,8 +18,10 @@ export default function MinijobStundenContent() {
         </p>
         <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
           Wie viele Stunden Sie arbeiten dürfen, hängt allein von Ihrem <strong>Stundenlohn</strong> ab.
-          Formel: <em>Maximale Stunden = 603 € ÷ Stundenlohn</em>. Die Stunden können flexibel
-          über den Monat verteilt werden — keine wöchentliche Grenze gilt.
+          Formel: <em>Maximale Stunden = 603 € ÷ Stundenlohn</em>. Für den Minijob selbst gibt es
+          dabei keine feste Wochenstundengrenze — die tatsächlich zulässige Arbeitszeit kann aber
+          durch das Arbeitszeitgesetz, den Arbeitsvertrag und weitere arbeitsrechtliche Regeln
+          begrenzt sein (mehr dazu weiter unten).
         </p>
 
         <div className="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-4 sm:p-6 mb-6">
@@ -192,7 +194,57 @@ export default function MinijobStundenContent() {
         </div>
       </article>
 
-      {/* ── Section 4: Minijob Stunden & Teilzeit/Vollzeit ── */}
+      {/* ── Section 5: Stunden bei mehreren Jobs ── */}
+      <article className="bg-white rounded-xl shadow-lg border border-gray-100 p-5 sm:p-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+          Stunden bei mehreren Minijobs: Was gilt?
+        </h2>
+        <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+          Wer mehrere geringfügige Jobs ausübt, muss die <strong>Verdienste aller Minijobs
+          zusammenzählen</strong>. Die Stunden selbst werden nicht zusammengezählt —
+          aber der Gesamtverdienst darf 603 Euro/Monat nicht überschreiten.
+        </p>
+
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 mb-6">
+          <h3 className="font-bold text-gray-900 mb-4 text-sm">Beispiel: 2 Minijobs gleichzeitig</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div className="bg-white rounded-lg p-3 border border-gray-300 text-center">
+              <p className="font-bold text-gray-900 mb-2">Job A</p>
+              <p>15 €/h × 20 Std. = <strong className="text-blue-600">300 €</strong></p>
+            </div>
+            <div className="bg-white rounded-lg p-3 border border-gray-300 text-center">
+              <p className="font-bold text-gray-900 mb-2">Job B</p>
+              <p>15 €/h × 20 Std. = <strong className="text-blue-600">300 €</strong></p>
+            </div>
+            <div className="bg-green-50 rounded-lg p-3 border border-green-300 text-center">
+              <p className="font-bold text-green-900 mb-2">Gesamt ✅</p>
+              <p>40 Std. = <strong className="text-green-700">600 €</strong></p>
+              <p className="text-green-600 text-xs">Unter 603 € → Minijob OK</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <h3 className="font-bold text-red-900 mb-2 text-sm">❌ Vorsicht: Gesamtverdienst zu hoch</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm mb-3">
+            <div className="bg-white rounded-lg p-3 border border-red-200 text-center">
+              <p className="font-bold text-gray-900">Job A: 15 €/h × 25 Std.</p>
+              <p className="text-red-600 font-bold">= 375 €</p>
+            </div>
+            <div className="bg-white rounded-lg p-3 border border-red-200 text-center">
+              <p className="font-bold text-gray-900">Job B: 15 €/h × 25 Std.</p>
+              <p className="text-red-600 font-bold">= 375 €</p>
+            </div>
+            <div className="bg-red-100 rounded-lg p-3 border border-red-300 text-center">
+              <p className="font-bold text-red-900">Gesamt ❌</p>
+              <p className="text-red-700 font-bold">750 € {'>'} 603 €</p>
+              <p className="text-red-600 text-xs">SV-Pflicht für beide Jobs!</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      {/* ── Section 4 (moved): Minijob Stunden & Teilzeit/Vollzeit ── */}
       <article id="teilzeit" className="bg-white rounded-xl shadow-lg border border-gray-100 p-5 sm:p-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
           Minijob Stunden: Teilzeit vs. Vollzeit
@@ -252,56 +304,6 @@ export default function MinijobStundenContent() {
                 Midijob-Rechner →
               </Link>
             </p>
-          </div>
-        </div>
-      </article>
-
-      {/* ── Section 5: Stunden bei mehreren Jobs ── */}
-      <article className="bg-white rounded-xl shadow-lg border border-gray-100 p-5 sm:p-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-          Stunden bei mehreren Minijobs: Was gilt?
-        </h2>
-        <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
-          Wer mehrere geringfügige Jobs ausübt, muss die <strong>Verdienste aller Minijobs
-          zusammenzählen</strong>. Die Stunden selbst werden nicht zusammengezählt —
-          aber der Gesamtverdienst darf 603 Euro/Monat nicht überschreiten.
-        </p>
-
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 mb-6">
-          <h3 className="font-bold text-gray-900 mb-4 text-sm">Beispiel: 2 Minijobs gleichzeitig</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-            <div className="bg-white rounded-lg p-3 border border-gray-300 text-center">
-              <p className="font-bold text-gray-900 mb-2">Job A</p>
-              <p>15 €/h × 20 Std. = <strong className="text-blue-600">300 €</strong></p>
-            </div>
-            <div className="bg-white rounded-lg p-3 border border-gray-300 text-center">
-              <p className="font-bold text-gray-900 mb-2">Job B</p>
-              <p>15 €/h × 20 Std. = <strong className="text-blue-600">300 €</strong></p>
-            </div>
-            <div className="bg-green-50 rounded-lg p-3 border border-green-300 text-center">
-              <p className="font-bold text-green-900 mb-2">Gesamt ✅</p>
-              <p>40 Std. = <strong className="text-green-700">600 €</strong></p>
-              <p className="text-green-600 text-xs">Unter 603 € → Minijob OK</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <h3 className="font-bold text-red-900 mb-2 text-sm">❌ Vorsicht: Gesamtverdienst zu hoch</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm mb-3">
-            <div className="bg-white rounded-lg p-3 border border-red-200 text-center">
-              <p className="font-bold text-gray-900">Job A: 15 €/h × 25 Std.</p>
-              <p className="text-red-600 font-bold">= 375 €</p>
-            </div>
-            <div className="bg-white rounded-lg p-3 border border-red-200 text-center">
-              <p className="font-bold text-gray-900">Job B: 15 €/h × 25 Std.</p>
-              <p className="text-red-600 font-bold">= 375 €</p>
-            </div>
-            <div className="bg-red-100 rounded-lg p-3 border border-red-300 text-center">
-              <p className="font-bold text-red-900">Gesamt ❌</p>
-              <p className="text-red-700 font-bold">750 € {'>'} 603 €</p>
-              <p className="text-red-600 text-xs">SV-Pflicht für beide Jobs!</p>
-            </div>
           </div>
         </div>
       </article>

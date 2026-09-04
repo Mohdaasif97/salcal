@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function MinijobStundenHero() {
   const navLinks = [
-    { href: '#stunden-berechnung', label: '↓ Berechnung' },
+    { href: '#rechner', label: '↓ Rechner' },
     { href: '#stundentabelle', label: '↓ Tabelle' },
     { href: '#teilzeit', label: '↓ Teilzeit/Vollzeit' },
     { href: '#faq', label: '↓ FAQ' },

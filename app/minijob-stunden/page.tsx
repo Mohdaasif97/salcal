@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Info } from 'lucide-react'
 import MinijobStundenHero from '@/components/minijob-stunden/MinijobStundenHero'
 import MinijobStundenStats from '@/components/minijob-stunden/MinijobStundenStats'
+import MinijobStundenRechner from '@/components/minijob-stunden/MinijobStundenRechner'
 import MinijobStundenContent from '@/components/minijob-stunden/MinijobStundenContent'
 import MinijobStundenFaq, { faqsStunden } from '@/components/minijob-stunden/MinijobStundenFaq'
 import AdBanner from '@/components/minijob-stunden/AdBanner'
@@ -112,7 +113,9 @@ export default function MinijobStundenPage() {
         <main className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
           <MinijobStundenStats />
 
-          {/* Ad: medium rectangle — separated from the corner ad, placed between Stats and Content */}
+          <MinijobStundenRechner />
+
+          {/* Ad: medium rectangle — separated from the corner ad, placed between Rechner and Content */}
           <div className="flex justify-center my-8">
             <div className="bg-white border border-gray-200 rounded-xl p-4 flex flex-col items-center gap-1.5">
               <span className="text-[10px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
