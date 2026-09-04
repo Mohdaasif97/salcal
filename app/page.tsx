@@ -63,7 +63,7 @@ const jsonLd = {
           name: 'Was ist der Unterschied zwischen Minijob und Midijob?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Beim Minijob (bis 603 €/Monat) zahlen Arbeitnehmer keine Sozialabgaben. Beim Midijob (538–2.000 €, Übergangsbereich/Gleitzone) fallen reduzierte, einkommensabhängig steigende Sozialabgaben an.',
+            text: 'Beim Minijob (bis 603 €/Monat) zahlen Arbeitnehmer keine Sozialabgaben. Beim Midijob (603–2.000 €, Übergangsbereich/Gleitzone) fallen reduzierte, einkommensabhängig steigende Sozialabgaben an.',
           },
         },
         {
@@ -142,7 +142,7 @@ export default function HomePage() {
     },
     {
       q: 'Was ist der Unterschied zwischen Minijob und Midijob?',
-      a: 'Beim Minijob (bis 603 €/Monat) zahlen Arbeitnehmer keine Sozialabgaben. Beim Midijob (538–2.000 €, Übergangsbereich) fallen reduzierte, einkommensabhängig steigende Sozialabgaben an.',
+      a: 'Beim Minijob (bis 603 €/Monat) zahlen Arbeitnehmer keine Sozialabgaben. Beim Midijob (603,01–2.000 €, Übergangsbereich) fallen reduzierte, einkommensabhängig steigende Sozialabgaben an.',
     },
     {
       q: 'Kann ich neben einem Vollzeitjob einen Minijob haben?',
@@ -309,7 +309,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <p className="text-xs text-gray-500 leading-relaxed mb-3">
-                  Gleitzone 538–2.000 €: reduzierte Sozialabgaben im Übergangsbereich berechnen.
+                  Gleitzone 603–2.000 €: reduzierte Sozialabgaben im Übergangsbereich berechnen.
                 </p>
                 <span className="text-xs font-semibold text-gray-400 group-hover:text-blue-500 transition-colors">
                   Zum Rechner →
@@ -326,7 +326,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <span className="font-bold text-blue-800">Midijob</span>
-                    <p className="text-blue-600 mt-0.5">538–2.000 €/Monat — reduzierte Abgaben (Gleitzone)</p>
+                    <p className="text-blue-600 mt-0.5">603–2.000 €/Monat — reduzierte Abgaben (Gleitzone)</p>
                   </li>
                 </ul>
                 <Link href="/midijob-rechner" className="inline-block mt-3 text-xs font-semibold text-blue-600 hover:underline">
@@ -390,7 +390,7 @@ export default function HomePage() {
                 Im Privathaushalt gelten reduzierte Sätze (5 % RV, 5 % KV).
               </p>
               <p>
-                Liegt der Verdienst zwischen 538 € und 2.000 € im Monat, greift der sogenannte{' '}
+                Liegt der Verdienst zwischen 603 € und 2.000 € im Monat, greift der sogenannte{' '}
                 <strong>Übergangsbereich (Gleitzone/Midijob)</strong>. Hier zahlen Arbeitnehmer reduzierte,
                 einkommensabhängig ansteigende Sozialabgaben.{' '}
                 <Link href="/midijob-rechner" className="text-blue-600 hover:underline font-medium">
