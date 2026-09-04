@@ -332,6 +332,9 @@ export default function MinijobStundenContent() {
           <Link href="/minijob-rechner" className="flex items-center gap-2 text-sm text-blue-700 hover:underline font-medium">
             → Minijob Rechner 2026 – Netto sofort berechnen
           </Link>
+          <Link href="/minijob-stundenlohn" className="flex items-center gap-2 text-sm text-blue-700 hover:underline font-medium">
+            → Minijob Stundenlohn 2026 – Stunden nach Lohn berechnen
+          </Link>
           <Link href="/minijob-verdienstgrenze" className="flex items-center gap-2 text-sm text-blue-700 hover:underline font-medium">
             → Minijob Verdienstgrenze 2026 – 603 Euro erklärt
           </Link>
