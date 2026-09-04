@@ -9,8 +9,8 @@ const YEAR = 2026
 const CANONICAL_URL = 'https://www.minijob-netto-rechner.de/minijob-kosten-arbeitgeber'
 
 export const metadata: Metadata = {
-  title: `Minijob Kosten Arbeitgeber ${YEAR} – Pauschalabgaben | Minijob-Netto-Rechner.de`,
-  description: `Was kostet ein Minijob den Arbeitgeber ${YEAR}? Pauschalabgaben: ~32,47% gewerblich (≈798€) & ~14,92% Haushalt (≈693€). Kostenvergleich, Tabellen & Steuervorteile.`,
+  title: `Was kostet ein Minijob den Arbeitgeber ${YEAR}? – Kosten 2026`,
+  description: `Was kostet ein Minijobber den Arbeitgeber 2026? Bei 603 € Bruttolohn: ca. 798 € gewerblich, 691 € im Privathaushalt (14,62%). Alle Abgaben & Umlagen erklärt.`,
 
   robots: {
     index: true,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: `Minijob Kosten Arbeitgeber ${YEAR} – Pauschalabgaben & Gesamtkosten`,
-    description: `Minijob Arbeitgeberkosten ${YEAR}: Gewerblich ~798€/Monat (32,47%), Privathaushalt ~693€/Monat (14,92%). Alle Abgaben, Änderungen & Steuervorteile erklärt.`,
+    description: `Minijob Arbeitgeberkosten ${YEAR}: Gewerblich ~798€/Monat (Beispiel, 31,17% + individuelle Unfallversicherung), Privathaushalt ~691€/Monat (14,62%). Alle Abgaben, Änderungen & Steuervorteile erklärt.`,
     url: CANONICAL_URL,
     siteName: 'Minijob-Netto-Rechner.de',
     locale: 'de_DE',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     title: `Minijob Kosten Arbeitgeber ${YEAR}`,
-    description: `Gesamtkosten Minijob: ~798€ gewerblich, ~693€ Haushalt. Alle Pauschalabgaben & Änderungen ${YEAR}.`,
+    description: `Gesamtkosten Minijob: ~798€ gewerblich (Beispiel), ~691€ Haushalt (14,62%). Alle Pauschalabgaben & Änderungen ${YEAR}.`,
   },
 }
 
@@ -46,7 +46,7 @@ const jsonLd = {
       url: CANONICAL_URL,
       inLanguage: 'de-DE',
       datePublished: `${YEAR}-01-01`,
-      dateModified: '2026-03-11',
+      dateModified: '2026-09-04',
       image: {
         '@type': 'ImageObject',
         url: 'https://www.minijob-netto-rechner.de/og-image.png',
@@ -113,7 +113,7 @@ export default function MinijobKostenArbeitgeberPage() {
                   oder rechtliche Beratung. Für verbindliche Auskünfte wenden Sie sich an einen{' '}
                   <strong>Steuerberater</strong>, die <strong>Minijob-Zentrale</strong> (0355/2902-70799) oder
                   Ihren <strong>Lohnbuchhaltungsdienstleister</strong>. Alle Abgabensätze nach aktuellem Stand
-                  Januar {YEAR}, Unfallversicherungsbeiträge variieren je nach Berufsgenossenschaft.
+                  {YEAR}, Unfallversicherungsbeiträge variieren je nach Berufsgenossenschaft.
                 </p>
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function MinijobKostenArbeitgeberPage() {
             </p>
             <p>
               Stand: {YEAR} • Alle Angaben ohne Gewähr • Quellen: Minijob-Zentrale, Deutsche Rentenversicherung,
-              Bundesministerium für Arbeit • Aktualisiert: Januar {YEAR}
+              Bundesministerium für Arbeit • Aktualisiert: 04.09.2026
             </p>
           </footer>
         </main>

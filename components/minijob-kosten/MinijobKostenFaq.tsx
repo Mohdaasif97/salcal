@@ -4,11 +4,11 @@
 export const faqsKosten = [
   {
     q: 'Was kostet ein Minijob den Arbeitgeber 2026?',
-    a: 'Bei einem gewerblichen Minijob mit 603 Euro Bruttolohn betragen die Gesamtkosten für den Arbeitgeber rund 798 Euro pro Monat. Das setzt sich zusammen aus dem Bruttolohn (603 €) plus Pauschalabgaben von ca. 32,47% (≈ 195,71 €). Im Privathaushalt sind es nur rund 693 Euro, da die Pauschalabgaben dort nur ca. 14,92% betragen. Der Unterschied von rund 105 Euro pro Monat (1.260 Euro/Jahr) entsteht vor allem durch die niedrigeren KV- und RV-Pauschalen im Haushalt.',
+    a: 'Bei einem gewerblichen Minijob mit 603 Euro Bruttolohn betragen die Gesamtkosten für den Arbeitgeber im Beispiel rund 798 Euro pro Monat. Das setzt sich zusammen aus dem Bruttolohn (603 €) plus Pauschalabgaben von 31,17% an die Minijob-Zentrale (≈ 187,96 €) sowie einer individuellen Unfallversicherung Ihrer Berufsgenossenschaft (Beispiel: 1,30% ≈ 7,84 €). Im Privathaushalt sind es rund 691 Euro, da die Pauschalabgaben dort einheitlich 14,62% betragen (inkl. 1,60% Unfallversicherung). Der Unterschied von rund 107 Euro pro Monat (ca. 1.290 Euro/Jahr) entsteht vor allem durch die niedrigeren KV- und RV-Pauschalen im Haushalt.',
   },
   {
     q: 'Welche Pauschalabgaben zahlt der Arbeitgeber beim Minijob?',
-    a: 'Gewerbliche Arbeitgeber zahlen: Krankenversicherung 13%, Rentenversicherung 15%, pauschale Lohnsteuer 2%, U1-Umlage 0,80%, U2-Umlage 0,22%, U3-Umlage 0,15%, Unfallversicherung ~1,30% — insgesamt ~32,47%. Privathaushalt-Arbeitgeber zahlen: KV 5%, RV 5%, Lohnsteuer 2%, U1 0,80%, U2 0,22%, U3 0%, UV ~1,90% — insgesamt ~14,92%. Alle Abgaben werden gebündelt an die Minijob-Zentrale abgeführt.',
+    a: 'Gewerbliche Arbeitgeber zahlen: Krankenversicherung 13%, Rentenversicherung 15%, pauschale Lohnsteuer 2%, U1-Umlage 0,80%, U2-Umlage 0,22%, U3-Umlage 0,15% — zusammen fest 31,17%, zuzüglich der individuellen Unfallversicherung Ihrer Berufsgenossenschaft (Beispielwert: 1,30%, ergibt ~32,47% insgesamt). Privathaushalt-Arbeitgeber zahlen: KV 5%, RV 5%, Lohnsteuer 2%, U1 0,80%, U2 0,22%, U3 0%, UV 1,60% — insgesamt 14,62%. Alle Abgaben werden gebündelt an die Minijob-Zentrale abgeführt.',
   },
   {
     q: 'Was hat sich bei den Arbeitgeberabgaben 2026 geändert?',

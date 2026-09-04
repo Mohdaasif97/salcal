@@ -18,9 +18,11 @@ export default function MinijobKostenContent() {
         </p>
         <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
           Bei einem <strong>gewerblichen Minijob</strong> mit 603 Euro Bruttolohn belaufen sich die
-          Gesamtkosten auf rund <strong>798 Euro pro Monat</strong> (32,47% Aufschlag). Im{' '}
-          <strong>Privathaushalt</strong> sind es nur rund <strong>693 Euro</strong> (14,92% Aufschlag) —
-          eine Ersparnis von gut <strong>105 Euro pro Monat</strong> bzw. <strong>1.260 Euro pro Jahr</strong>.
+          Gesamtkosten auf rund <strong>798 Euro pro Monat</strong> (Beispielrechnung mit 32,47% Aufschlag —
+          die Pauschalabgaben an die Minijob-Zentrale betragen fest 31,17%, hinzu kommt die individuelle
+          Unfallversicherung Ihrer Berufsgenossenschaft). Im <strong>Privathaushalt</strong> sind es nur rund{' '}
+          <strong>691 Euro</strong> (14,62% Aufschlag) — eine Ersparnis von gut{' '}
+          <strong>107 Euro pro Monat</strong> bzw. <strong>1.290 Euro pro Jahr</strong>.
         </p>
 
         {/* Schnellübersicht Karten */}
@@ -48,18 +50,22 @@ export default function MinijobKostenContent() {
                 <span>U3-Umlage (Insolvenz)</span><strong>0,15%</strong>
               </li>
               <li className="flex justify-between border-b border-orange-200 pb-1.5">
-                <span>Unfallversicherung (UV)</span><strong>~1,30%</strong>
+                <span>Unfallversicherung (UV)*</span><strong>Bsp. 1,30%</strong>
               </li>
               <li className="flex justify-between pt-2 font-bold text-sm sm:text-base">
-                <span>Gesamt Aufschlag</span><span className="text-orange-700">~32,47%</span>
+                <span>Gesamt Aufschlag</span><span className="text-orange-700">31,17% + UV</span>
               </li>
             </ul>
             <div className="mt-4 pt-3 border-t border-orange-200 space-y-1 text-xs text-orange-800">
               <div className="flex justify-between"><span>Bruttolohn</span><strong>603,00 €</strong></div>
-              <div className="flex justify-between"><span>Pauschalabgaben</span><strong>195,71 €</strong></div>
+              <div className="flex justify-between"><span>Pauschalabgaben (Bsp.)</span><strong>195,71 €</strong></div>
               <div className="flex justify-between text-sm font-extrabold text-orange-900">
-                <span>Gesamtkosten AG</span><span>~798,71 €</span>
+                <span>Gesamtkosten AG (Bsp.)</span><span>~798,71 €</span>
               </div>
+              <p className="text-[10px] text-orange-600 pt-1">
+                *Die Unfallversicherung wird individuell von Ihrer Berufsgenossenschaft festgelegt —
+                1,30% ist ein Beispielwert, kein Festsatz.
+              </p>
             </div>
           </div>
 
@@ -86,17 +92,17 @@ export default function MinijobKostenContent() {
                 <span>U3-Umlage (Insolvenz)</span><strong>0,00%</strong>
               </li>
               <li className="flex justify-between border-b border-green-200 pb-1.5">
-                <span>Unfallversicherung (UV)</span><strong>~1,90%</strong>
+                <span>Unfallversicherung (UV)</span><strong>1,60%</strong>
               </li>
               <li className="flex justify-between pt-2 font-bold text-sm sm:text-base">
-                <span>Gesamt Aufschlag</span><span className="text-green-700">~14,92%</span>
+                <span>Gesamt Aufschlag</span><span className="text-green-700">14,62%</span>
               </li>
             </ul>
             <div className="mt-4 pt-3 border-t border-green-200 space-y-1 text-xs text-green-800">
               <div className="flex justify-between"><span>Bruttolohn</span><strong>603,00 €</strong></div>
-              <div className="flex justify-between"><span>Pauschalabgaben</span><strong>90,00 €</strong></div>
+              <div className="flex justify-between"><span>Pauschalabgaben</span><strong>88,16 €</strong></div>
               <div className="flex justify-between text-sm font-extrabold text-green-900">
-                <span>Gesamtkosten AG</span><span>~693,00 €</span>
+                <span>Gesamtkosten AG</span><span>~691,16 €</span>
               </div>
             </div>
           </div>
@@ -189,12 +195,12 @@ export default function MinijobKostenContent() {
             </thead>
             <tbody>
               {[
-                ['200 €', '10,00 €', '10,00 €', '9,84 €', '~229,84 €'],
-                ['300 €', '15,00 €', '15,00 €', '14,76 €', '~344,76 €'],
-                ['400 €', '20,00 €', '20,00 €', '19,68 €', '~459,68 €'],
-                ['500 €', '25,00 €', '25,00 €', '24,60 €', '~574,60 €'],
-                ['556 €', '27,80 €', '27,80 €', '27,34 €', '~638,94 €'],
-                ['603 €', '30,15 €', '30,15 €', '29,64 €', '~692,94 €'],
+                ['200 €', '10,00 €', '10,00 €', '9,24 €', '~229,24 €'],
+                ['300 €', '15,00 €', '15,00 €', '13,86 €', '~343,86 €'],
+                ['400 €', '20,00 €', '20,00 €', '18,48 €', '~458,48 €'],
+                ['500 €', '25,00 €', '25,00 €', '23,10 €', '~573,10 €'],
+                ['556 €', '27,80 €', '27,80 €', '25,69 €', '~637,29 €'],
+                ['603 €', '30,15 €', '30,15 €', '27,86 €', '~691,16 €'],
               ].map(([brutto, kv, rv, rest, gesamt], i) => (
                 <tr key={i} className={i === 5 ? 'bg-green-50 font-semibold' : i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                   <td className="p-2 sm:p-3 font-semibold text-gray-900 border">{brutto}</td>
@@ -211,8 +217,8 @@ export default function MinijobKostenContent() {
         <div className="bg-green-50 border border-green-200 rounded-lg p-4">
           <p className="text-xs sm:text-sm text-green-800 leading-relaxed">
             <strong>📌 Formel Gesamtkosten:</strong> Bruttolohn × (1 + Pauschalabgaben in %) = Gesamtkosten<br />
-            <strong>Gewerblich:</strong> 603 € × 1,3247 = <strong>~798,71 €/Monat</strong><br />
-            <strong>Privathaushalt:</strong> 603 € × 1,1492 = <strong>~692,94 €/Monat</strong>
+            <strong>Gewerblich (Beispiel mit 1,30% UV):</strong> 603 € × 1,3247 = <strong>~798,71 €/Monat</strong><br />
+            <strong>Privathaushalt:</strong> 603 € × 1,1462 = <strong>~691,16 €/Monat</strong>
           </p>
         </div>
       </article>
@@ -246,8 +252,8 @@ export default function MinijobKostenContent() {
                 ['U1-Umlage (Krankheit)', '0,80%', '0,80%', '±0%'],
                 ['U2-Umlage (Mutterschaft)', '0,22%', '0,22%', '±0%'],
                 ['U3-Umlage (Insolvenz)', '0,15%', '0,00%', '-0,15%'],
-                ['Unfallversicherung (UV)', '~1,30%', '~1,90%', '+0,60%'],
-                ['Gesamt', '~32,47%', '~14,92%', '-17,55%'],
+                ['Unfallversicherung (UV)', 'individuell (Bsp. 1,30%)', '1,60%', '+0,30%*'],
+                ['Gesamt', '31,17% + UV*', '14,62%', '-16,55%*'],
               ].map(([art, gew, hh, diff], i) => (
                 <tr
                   key={i}
@@ -268,14 +274,19 @@ export default function MinijobKostenContent() {
             </tbody>
           </table>
         </div>
+        <p className="text-xs text-gray-500 mb-6">
+          *Die Unfallversicherung im gewerblichen Bereich wird individuell von Ihrer Berufsgenossenschaft
+          festgelegt und richtet sich nach Branche und Risikoklasse. 1,30% ist ein Beispielwert zur
+          Orientierung, kein gesetzlich fixierter Satz.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
             <h3 className="font-bold text-orange-900 mb-2 text-sm">🏢 Wann ist gewerblicher Minijob teurer?</h3>
             <p className="text-xs sm:text-sm text-orange-800 leading-relaxed">
-              Bei <strong>603 € Brutto</strong> zahlt der gewerbliche Arbeitgeber rund{' '}
-              <strong>195,71 € Pauschalabgaben</strong> — über 105 € mehr als im Privathaushalt.
-              Aufs Jahr gerechnet sind das <strong>1.260 € Mehrkosten</strong> pro Minijobber.
+              Bei <strong>603 € Brutto</strong> zahlt der gewerbliche Arbeitgeber im Beispiel rund{' '}
+              <strong>195,71 € Pauschalabgaben</strong> — über 107 € mehr als im Privathaushalt.
+              Aufs Jahr gerechnet sind das <strong>rund 1.290 € Mehrkosten</strong> pro Minijobber.
             </p>
           </div>
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
@@ -332,9 +343,9 @@ export default function MinijobKostenContent() {
               content: 'Die U3-Umlage sichert das Insolvenzgeld für Arbeitnehmer, wenn der Arbeitgeber zahlungsunfähig wird. Gewerbliche Arbeitgeber zahlen 0,15%. Privathaushalt-Arbeitgeber sind davon befreit (0%) — da private Haushalte kein Insolvenzverfahren durchlaufen können.',
             },
             {
-              title: '🦺 Unfallversicherung (UV) – ~1,30% / ~1,90%',
+              title: '🦺 Unfallversicherung (UV) – individuell / 1,60%',
               color: 'yellow',
-              content: 'Die Beiträge zur gesetzlichen Unfallversicherung werden direkt an die zuständige Berufsgenossenschaft abgeführt. Der Satz variiert je nach Branche und Risikoklasse — typisch sind ~1,30% für gewerbliche Minijobs. Privathaushalt-Arbeitgeber zahlen etwas mehr (~1,90%), da diese über die Unfallversicherung Bund und Bahn versichert werden.',
+              content: 'Im gewerblichen Bereich werden die Beiträge zur gesetzlichen Unfallversicherung direkt an die zuständige Berufsgenossenschaft abgeführt. Der Satz variiert je nach Branche und Risikoklasse — 1,30% ist ein typischer Beispielwert, kein Festsatz. Privathaushalt-Arbeitgeber zahlen dagegen einen einheitlichen Satz von 1,60%, da diese über die Unfallversicherung Bund und Bahn versichert werden; die Minijob-Zentrale übernimmt die Anmeldung automatisch.',
             },
           ].map((item, i) => (
             <div
@@ -420,8 +431,9 @@ export default function MinijobKostenContent() {
         </h2>
         <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
           Private Haushalte profitieren gleich doppelt: Erstens durch die niedrigeren Pauschalabgaben
-          (14,92% statt 32,47%), und zweitens durch den <strong>direkten Steuerabzug von 20%</strong> der
-          Gesamtkosten — also nicht nur des Bruttolohns, sondern aller gezahlten Abgaben.
+          (14,62% statt 31,17%+UV im gewerblichen Bereich), und zweitens durch den{' '}
+          <strong>direkten Steuerabzug von 20%</strong> der Gesamtkosten — also nicht nur des Bruttolohns,
+          sondern aller gezahlten Abgaben.
         </p>
 
         <div className="bg-green-50 border border-green-200 rounded-lg p-5 mb-6">
@@ -433,19 +445,19 @@ export default function MinijobKostenContent() {
               <span>Bruttolohn pro Monat</span><strong>603,00 €</strong>
             </div>
             <div className="flex justify-between border-b border-green-200 pb-1.5">
-              <span>Pauschalabgaben (14,92%)</span><strong>+ 89,97 €</strong>
+              <span>Pauschalabgaben (14,62%)</span><strong>+ 88,16 €</strong>
             </div>
             <div className="flex justify-between border-b border-green-200 pb-1.5 font-semibold">
-              <span>Gesamtkosten pro Monat</span><strong>~692,97 €</strong>
+              <span>Gesamtkosten pro Monat</span><strong>~691,16 €</strong>
             </div>
             <div className="flex justify-between border-b border-green-200 pb-1.5 font-semibold">
-              <span>Gesamtkosten pro Jahr</span><strong>~8.315,64 €</strong>
+              <span>Gesamtkosten pro Jahr</span><strong>~8.293,92 €</strong>
             </div>
             <div className="flex justify-between border-b border-green-200 pb-1.5">
               <span>Steuerabzug 20% (max. 510 €/Jahr)</span><strong className="text-green-700">- 510,00 €</strong>
             </div>
             <div className="flex justify-between pt-1 font-bold text-sm sm:text-base text-green-900">
-              <span>Tatsächliche Nettokosten/Jahr</span><strong>~7.805,64 €</strong>
+              <span>Tatsächliche Nettokosten/Jahr</span><strong>~7.783,92 €</strong>
             </div>
           </div>
           <p className="text-xs text-green-700 mt-3">

@@ -29,13 +29,13 @@ export default function MinijobKostenHero() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6">
           <div className="flex-1 min-w-0">
             <h1 className="text-lg sm:text-2xl font-bold text-white leading-tight mb-1">
-              Minijob Kosten Arbeitgeber 2026 – Alle Abgaben & Pauschalabgaben
+              Was kostet ein Minijob den Arbeitgeber 2026?
             </h1>
             <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
-              Was kostet ein <strong className="text-white">Minijob den Arbeitgeber 2026</strong>?
-              Vollständige Übersicht aller <strong className="text-white">Pauschalabgaben</strong> für gewerbliche
-              Minijobs (~32,47%) und Privathaushalt (~14,92%) —{' '}
-              <span className="text-blue-200">mit Kostenvergleich, Beispielrechnungen und Steuervorteilen</span>.
+              Bei <strong className="text-white">603 € Bruttolohn</strong> entstehen gewerblich etwa{' '}
+              <strong className="text-white">798 € Gesamtkosten</strong> pro Monat. Im Privathaushalt sind es
+              etwa <strong className="text-white">691 €</strong> —{' '}
+              <span className="text-blue-200">Pauschalabgaben, Umlagen, Kostenvergleich und Steuervorteile erklärt</span>.
             </p>
           </div>
 
