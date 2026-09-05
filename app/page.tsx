@@ -189,9 +189,17 @@ export default function HomePage() {
         {/* ── Hero ── */}
         <section className="relative bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 text-white">
 
-          {/* Ad: small corner unit — top-right of hero, desktop only */}
-          <div className="hidden sm:block absolute top-4 right-4 z-20 bg-white/95 rounded-lg p-1 shadow-lg">
-            <span className="block text-center text-[9px] uppercase tracking-wider text-gray-400 font-medium mb-0.5">Anzeige</span>
+          {/* Ad: single instance — full-width white bar on mobile, small absolute
+              corner card on desktop. Only ONE <AdBanner> here, so only one
+              request fires per visitor regardless of screen size. */}
+          <div className="
+            max-sm:static max-sm:w-full max-sm:flex max-sm:flex-col max-sm:items-center max-sm:gap-1
+            max-sm:bg-white max-sm:py-3 max-sm:rounded-none max-sm:shadow-none
+            sm:absolute sm:top-4 sm:right-4 sm:z-20 sm:bg-white/95 sm:rounded-lg sm:p-1 sm:shadow-lg
+          ">
+            <span className="block text-center text-[9px] uppercase tracking-wider text-gray-400 font-medium mb-0.5">
+              Anzeige
+            </span>
             <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
           </div>
 
@@ -221,12 +229,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        {/* Ad: small corner unit — mobile fallback (absolute corner placement doesn't fit small screens) */}
-        <div className="sm:hidden flex flex-col items-center gap-1 py-3 bg-white border-b border-gray-200">
-          <span className="text-[9px] uppercase tracking-wider text-gray-300 font-medium">Anzeige</span>
-          <AdBanner adKey="651fd88f51ec249f2c68668cd72931a8" width={320} height={50} />
-        </div>
 
         {/* ── Stats bar ── */}
         <section className="bg-white border-b border-gray-200" aria-label="Minijob Kennzahlen 2026">
