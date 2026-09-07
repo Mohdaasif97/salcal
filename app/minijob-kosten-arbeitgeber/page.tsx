@@ -4,7 +4,7 @@ import MinijobKostenHero from '@/components/minijob-kosten/MinijobKostenHero'
 import MinijobKostenStats from '@/components/minijob-kosten/MinijobKostenStats'
 import MinijobKostenContent from '@/components/minijob-kosten/MinijobKostenContent'
 import MinijobKostenFaq, { faqsKosten } from '@/components/minijob-kosten/MinijobKostenFaq'
-import AdBanner from '@/components/AdBanner'
+import AdBanner from '../AdBanner'
 
 const YEAR = 2026
 const CANONICAL_URL = 'https://www.minijob-netto-rechner.de/minijob-kosten-arbeitgeber'
