@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Info } from 'lucide-react'
 import MiniJobHero from '@/components/minijob/MiniJobHero'
-import MiniJobStats from '@/components/minijob/MiniJobStats'
 import MiniJobCalculator from '@/components/minijob/MiniJobCalculator'
 import MiniJobTable from '@/components/minijob/MiniJobTable'
 import MiniJobInfo from '@/components/minijob/MiniJobInfo'
@@ -113,16 +112,13 @@ export default function MinijobRechnerPage() {
         <MiniJobHero minijobLimit={MINIJOB_LIMIT} />
 
         <main className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
-          {/* Server-rendered stats */}
-          <MiniJobStats minijobLimit={MINIJOB_LIMIT} />
-
           {/* H2 server-rendered so Google indexes it, calculator is client-only */}
           <section id="rechner" className="bg-white rounded-xl shadow-lg border border-gray-100 p-5 sm:p-8 mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
-              Minijob Rechner Arbeitgeber & Netto {YEAR} – Abgaben berechnen
+              Minijob Rechner {YEAR} – Netto & Arbeitgeberkosten berechnen
             </h2>
             <p className="text-sm text-gray-600 mb-6">
-              Minijob Brutto Netto Rechner: Netto-Gehalt &amp; Arbeitgeberkosten Minijob in Sekunden ermitteln
+              Bruttogehalt eingeben, Art des Minijobs wählen — Ergebnis in Sekunden.
             </p>
             <MiniJobCalculator />
           </section>

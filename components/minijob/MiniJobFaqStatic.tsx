@@ -3,52 +3,24 @@
 
 export const faqs = [
   {
-    q: 'Was ist ein Minijob? Definition & Bedeutung',
-    a: 'Ein Minijob ist eine geringfügige Beschäftigung in Deutschland mit einem monatlichen Verdienst bis 603 Euro (Stand 2026). Die offizielle Bezeichnung ist "geringfügige Beschäftigung" gemäß § 8 SGB IV. Der Arbeitgeber zahlt keine normalen Sozialversicherungsbeiträge, sondern Pauschalabgaben an die Minijob-Zentrale. Der Arbeitnehmer erhält das Bruttogehalt in der Regel vollständig steuerfrei als Netto — ohne Abzüge für Kranken-, Pflege- oder Arbeitslosenversicherung. Lediglich ein optionaler Rentenversicherungsbeitrag von 3,6% kann anfallen.',
+    q: 'Wie viel Netto bleiben von 603€ Minijob?',
+    a: 'Mit Befreiung von der Rentenversicherungspflicht bleiben die vollen 603€ als Netto übrig — es gibt keine Abzüge. Ohne Befreiung wird der Rentenversicherungsbeitrag von 3,6% abgezogen, sodass 581,29€ Netto ausgezahlt werden. Welche Variante für Sie zutrifft, können Sie oben im Rechner direkt einstellen und vergleichen.',
   },
   {
-    q: 'Wie hoch ist die Minijob-Grenze 2026?',
-    a: 'Die Minijob-Grenze 2026 beträgt genau 603 Euro pro Monat (ab 1. Januar 2026). Diese Grenze ist direkt an den gesetzlichen Mindestlohn von 13,90€ pro Stunde gekoppelt. Das ergibt sich aus 43,33 durchschnittlichen Arbeitsstunden pro Monat multipliziert mit dem Mindestlohn. Gegenüber 2025 (556€) ist die Grenze um 47€ (+8,5%) gestiegen. Wenn der Mindestlohn zukünftig weiter angehoben wird, steigt die Minijob-Grenze automatisch mit.',
+    q: 'Wie viel wird für die Rentenversicherung abgezogen?',
+    a: 'Der Eigenanteil zur Rentenversicherung beträgt 3,6% des Bruttogehalts. Bei der maximalen Minijob-Grenze von 603€ sind das 21,71€ pro Monat. Der Rechner zeigt diesen Betrag automatisch an, sobald Sie "ohne Befreiung" auswählen.',
   },
   {
-    q: 'Was ist die Rentenversicherungspflicht beim Minijob?',
-    a: 'Seit dem 1. Januar 2013 sind Minijobber automatisch in der gesetzlichen Rentenversicherung pflichtversichert. Sie zahlen einen Eigenbeitrag von 3,6% ihres Bruttogehalts (Beispiel: bei 603€ = 21,71€ monatlich). Diese Beiträge werden später bei der Rentenberechnung berücksichtigt. Allerdings können Sie sich von dieser Pflicht befreien lassen (Befreiungsantrag gemäß § 6 Abs. 1b SGB VI). Mit Befreiung erhalten Sie das volle Bruttogehalt als Netto, verzichten aber auf den Aufbau von Rentenansprüchen aus diesem Job.',
+    q: 'Kann ich mich von der Rentenversicherungspflicht befreien lassen?',
+    a: 'Ja. Seit 2013 sind Minijobber zwar automatisch rentenversicherungspflichtig, können sich aber per Befreiungsantrag beim Arbeitgeber davon befreien lassen. Mit Befreiung erhalten Sie das volle Bruttogehalt als Netto, bauen im Gegenzug aber keine zusätzlichen Rentenansprüche aus diesem Job auf.',
   },
   {
-    q: 'Wie viel Stunden darf ich im Minijob arbeiten?',
-    a: 'Es gibt KEINE gesetzliche Stundenbegrenzung beim Minijob — das ist ein häufiger Irrtum! Entscheidend ist ausschließlich die monatliche Verdienstgrenze von 603 Euro. Wenn Sie den gesetzlichen Mindestlohn von 13,90€/h verdienen, entspricht das etwa 43 Stunden pro Monat oder rund 10 Stunden pro Woche. Sie könnten aber auch 40 Stunden in einer Woche arbeiten und die restlichen Wochen des Monats gar nicht — solange die 603€ nicht überschritten werden. Wichtig ist nur das Ergebnis am Monatsende.',
+    q: 'Berücksichtigt der Rechner auch die Arbeitgeberkosten?',
+    a: 'Ja. Der Rechner zeigt neben dem Netto auch die Pauschalabgaben, die der Arbeitgeber zahlt: rund 32,47% bei einem gewerblichen Minijob bzw. rund 14,62% bei einem Minijob im Privathaushalt — jeweils inklusive Kranken- und Rentenversicherung, pauschaler Lohnsteuer, Umlagen und Unfallversicherung.',
   },
   {
-    q: 'Kann ich mehrere Minijobs gleichzeitig haben?',
-    a: 'Ja, Sie können mehrere Minijobs gleichzeitig ausüben. Aber es gilt: Das Gesamteinkommen aus allen geringfügigen Beschäftigungen zusammen darf die Verdienstgrenze von 603 Euro monatlich nicht überschreiten. Wenn Sie also zwei Minijobs haben und zusammen 650€ verdienen, überschreiten Sie die Grenze — dann werden reguläre Sozialversicherungsbeiträge fällig. Eine Besonderheit: Wer einen regulären sozialversicherungspflichtigen Hauptjob hat, darf daneben genau einen Minijob ausüben, ohne dass dieser auf das Hauptgehalt angerechnet wird.',
-  },
-  {
-    q: 'Was passiert, wenn ich die Minijob-Grenze überschreite?',
-    a: 'Wenn die Verdienstgrenze von 603 Euro überschritten wird, endet die Minijob-Regelung automatisch. Das Arbeitsverhältnis wird dann als reguläre sozialversicherungspflichtige Beschäftigung eingestuft. Es fallen sofort die vollen Sozialversicherungsbeiträge an: Krankenversicherung (~14,6%), Pflegeversicherung (~3,6%), Rentenversicherung (~18,6%) und Arbeitslosenversicherung (2,6%). Das führt zu deutlich höheren Abzügen für Arbeitnehmer und höheren Kosten für Arbeitgeber. Die Minijob-Zentrale ist zu informieren und der Arbeitgeber muss neu bei der Krankenkasse anmelden.',
-  },
-  {
-    q: 'Muss ich einen Minijob beim Finanzamt angeben?',
-    a: 'Ein Minijob als einzige Beschäftigung muss in der Regel NICHT in der Steuererklärung angegeben werden. Der Grund: Der Arbeitgeber zahlt bereits eine pauschale Lohnsteuer von 2% (die Pauschalsteuer ist eine abschließende Besteuerung). Wenn Sie jedoch mehrere Einkünfte haben — z.B. zwei Minijobs, einen Minijob neben einem Hauptjob, oder zusätzliche Freelance-Einkünfte — kann eine Steuererklärung sinnvoll oder sogar Pflicht sein. Im Zweifelsfall empfiehlt sich eine Beratung beim Steuerberater oder Lohnsteuerhilfeverein.',
-  },
-  {
-    q: 'Was kostet ein Minijob den Arbeitgeber? Gesamtkosten 2026',
-    a: 'Die Gesamtkosten für den Arbeitgeber setzen sich aus Bruttolohn und Pauschalabgaben zusammen. Gewerblicher Minijob (z.B. Laden, Restaurant): Bei 603€ Brutto zahlt der Arbeitgeber 32,47% Pauschalabgaben = 195,71€, also insgesamt ca. 798€ Gesamtkosten pro Monat. Privathaushalt-Minijob (z.B. Haushaltshilfe): Bei 603€ Brutto fallen nur 14,62% Abgaben = 88,16€ an, also ca. 691€ Gesamtkosten. Der Privathaushalt spart dem Arbeitgeber monatlich etwa 107€ gegenüber dem gewerblichen Minijob.',
-  },
-  {
-    q: 'Haben Minijobber Anspruch auf Urlaub und Lohnfortzahlung?',
-    a: 'Ja! Minijobber haben exakt dieselben gesetzlichen Rechte wie Vollzeit-Arbeitnehmer. Urlaubsanspruch: Mindestens 20 Werktage (bei 5-Tage-Woche) pro Kalenderjahr, anteilig nach tatsächlichen Arbeitstagen. Lohnfortzahlung bei Krankheit: Der Arbeitgeber muss bis zu 6 Wochen den vollen Lohn weiterzahlen. Mutterschutz: Minijobberinnen sind vollständig durch das Mutterschutzgesetz geschützt. Unfallversicherung: Automatischer Schutz bei Arbeits- und Wegeunfällen ist inbegriffen. All diese Rechte entstehen durch die Pauschalabgaben, die der Arbeitgeber zahlt.',
-  },
-  {
-    q: 'Wie funktioniert die Anmeldung eines Minijobs bei der Minijob-Zentrale?',
-    a: 'Die Anmeldung muss VOR Beginn der Beschäftigung erfolgen — rückwirkende Anmeldungen sind nicht erlaubt! Zuständig ist die Minijob-Zentrale (Betriebsnummer: 72040000). Der Ablauf: (1) Arbeitgeber meldet den Minijob online unter minijob-zentrale.de oder per Post an. (2) Arbeitnehmer benötigt Steueridentifikationsnummer und Sozialversicherungsausweis. (3) Die Anmeldung ist kostenlos. (4) Bearbeitung dauert ca. 5–10 Arbeitstage. Ohne Anmeldung ist das Arbeitsverhältnis nicht versichert und es drohen Bußgelder bis 5.000€.',
-  },
-  {
-    q: 'Minijob-Grenze 2025 vs. 2026 – Was hat sich geändert?',
-    a: '2025: Minijob-Grenze 556€/Monat, Mindestlohn 12,41€/h. 2026: Minijob-Grenze 603€/Monat, Mindestlohn 13,90€/h. Die Erhöhung beträgt 47€ pro Monat (+8,5%), was aufs Jahr hochgerechnet 564€ mehr bedeutet. Mit dem neuen Mindestlohn von 13,90€ können Minijobber etwa 43 Stunden pro Monat arbeiten und die volle Minijob-Grenze von 603€ ausschöpfen. Für Arbeitgeber steigen die Pauschalabgaben leicht an, aber auch die Flexibilität bei der Stundenplanung verbessert sich.',
-  },
-  {
-    q: 'Kann ich als Student einen Minijob machen?',
-    a: 'Ja, Studenten können problemlos Minijobs ausüben. Wichtige Punkte: (1) Die monatliche Verdienstgrenze von 603€ muss eingehalten werden. (2) Familienversicherung: Wenn Sie über die Eltern in der gesetzlichen Krankenversicherung versichert sind, bleibt dieser Status durch einen Minijob unberührt. (3) BAföG: Ein Minijob beeinflusst das BAföG nicht negativ — es gibt Freibeträge, und Minijobverdienste werden nicht angerechnet. (4) Arbeitszeit: Während der Vorlesungszeit sollte die Arbeitszeit 20 Stunden pro Woche nicht überschreiten, damit die Studenteneigenschaft erhalten bleibt. (5) Mehrere Minijobs sind erlaubt, solange die Gesamtgrenze von 603€ eingehalten wird.',
+    q: 'Was ist der Unterschied zwischen gewerblichem Minijob und Minijob im Privathaushalt?',
+    a: 'Der Nettolohn für den Arbeitnehmer ist in beiden Fällen identisch. Der Unterschied liegt bei den Pauschalabgaben des Arbeitgebers: Bei einem gewerblichen Minijob (z.B. Einzelhandel, Gastronomie) fallen ca. 32,47% an, bei einem Minijob im Privathaushalt (z.B. Haushaltshilfe) nur ca. 14,62% — ein Unterschied von rund 109€ bei Maximalverdienst.',
   },
 ]
 
@@ -56,10 +28,10 @@ export default function MiniJobFaqStatic() {
   return (
     <section id="faq" className="bg-white rounded-xl shadow-lg border border-gray-100 p-5 sm:p-8 mb-6 sm:mb-8">
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-        Minijob FAQ 2026 – Häufig Gestellte Fragen
+        Häufige Fragen zum Minijob Rechner
       </h2>
       <p className="text-sm sm:text-base text-gray-600 mb-6">
-        Die wichtigsten Fragen und Antworten zum Minijob 2026 in Deutschland — von der Grenze bis zur Anmeldung.
+        Die wichtigsten Fragen rund um Netto-Gehalt, Rentenversicherung und Arbeitgeberkosten beim Minijob.
       </p>
       <div className="space-y-1">
         {faqs.map((faq, index) => (

@@ -1,7 +1,7 @@
 export default function MiniJobHero({ minijobLimit = 603 }: { minijobLimit?: number }) {
   const navLinks = [
     { href: "#rechner", label: "↓ Zum Rechner" },
-    { href: "#erklaerung", label: "↓ Was ist Minijob?" },
+    { href: "#erklaerung", label: "↓ Wie wird berechnet?" },
     { href: "#vergleich", label: "↓ Kostenvergleich" },
     { href: "#faq", label: "↓ FAQ" },
   ];

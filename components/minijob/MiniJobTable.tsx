@@ -7,8 +7,8 @@ export default function MiniJobTable() {
 
   return (
     <section id="vergleich" className="bg-white rounded-xl shadow-lg border border-gray-100 p-5 sm:p-8 mb-6 sm:mb-8">
-      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Minijob Brutto Netto Tabelle 2026 – Abgaben Rechner Übersicht</h2>
-      <p className="text-sm text-gray-600 mb-6">Minijob Brutto Netto & Arbeitgeber-Kosten auf einen Blick — Minijob Abgaben Rechner für alle gängigen Verdienste</p>
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Wie viel bleiben von 603€ Minijob netto?</h2>
+      <p className="text-sm text-gray-600 mb-6">Netto-Gehalt und Arbeitgeberkosten für die gängigsten Minijob-Verdienste auf einen Blick.</p>
       <div className="overflow-x-auto">
         <table className="w-full text-xs sm:text-sm border-collapse" aria-label="Minijob Vergleichstabelle">
           <thead>
